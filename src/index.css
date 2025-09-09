@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: 'BricolageGrotesque-Bold', sans-serif;
+  font-size: 18px;
+}
+@font-face {
+  font-family: 'BricolageGrotesque-Bold';
+  src: url('./assets/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf');
+}
+@font-face {
+  font-family: 'DMSans-Italic';
+  src: url('DMSans-Italic-VariableFont_opsz,wght.ttf');
+}
