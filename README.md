@@ -1,12 +1,19 @@
-# React + Vite
+# Front-mentor-hackathon challenge project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Weather-App-Hack
 
-Currently, two official plugins are available:
+This repository contain Weather app which is responsive weather app that can be view any screen sizes, with search functuality, unit conversion, and detailed forecasts using the Open-Meteo API. The weather app is implemented in Javascript using [@Vite+Reactjs].(https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-js).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Hero
+This folder contianing the template [#Header,#title#todayCloud], since the project is not involving rendering servere other pages, one folder was created for each of the components and on one page.
 
-## Expanding the ESLint configuration
+### Header 
+This is a Javascript component file containing Logo and unit conversion button, the header section at the top of the webpage.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### title
+This is a Javascript component file containing the title and search functionality, the search functionality collect the input of the user and  filter suggestion results.
+
+### todayCloud
+This is a Javascript component file containing the today cloud section, it deliver the current country, date  and weather.
+
+
