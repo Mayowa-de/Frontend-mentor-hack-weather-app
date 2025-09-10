@@ -16,3 +16,7 @@ body{
   font-family: 'DMSans-Italic';
   src: url('DMSans-Italic-VariableFont_opsz,wght.ttf');
 }
+@font-face {
+  font-family:'DMSans' ;
+  src: url('DMSans-VariableFont_opsz,wght.ttf');
+}

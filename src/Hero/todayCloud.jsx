@@ -1,17 +1,22 @@
 import React from 'react'
 import Bgicon from '../assets/images/bg-today-large.svg'
+import SunIcon from '../assets/images/icon-sunny.webp'
+import './Hero.css'
 
 export default function todayCloud() {
   return (
-    <div className='justify-center  mt-7 '>
+    <div className='justify-center  mt-10'>
       <img src={Bgicon} alt="" className='h-96' />
-      <div className='z-10 top-96 justify-between  flex px-5 absolute items-center'>
-        <div className='flex flex-col gap-5 text-white'>
-        <h3>Berlin, Germany</h3>
+      <div className='z-10 top-96 justify-between flex px-7 absolute items-center w-3/4'>
+        <div className='flex flex-col gap-6 text-white'>
+        <h3 className='text-3xl'>Berlin, Germany</h3>
         <p>Tuesday, Aug 5, 2025</p>
         </div>
-        <div className='flex justify-end'>
-        <h1 className='text-2xl text-end text-white'>20<span>o</span></h1>
+        <div className='flex justify-items-end gap-12 todayCloud'>
+        <img src={SunIcon} alt="" className='w-32 absolute -ml-40 -mt-3' />
+        <div className='flex gap-5'>
+        <h1 className='text-8xl font-DMSans-Italic text-end text-white font-bold'>20</h1><span className='text-sm mt-2 -ml-5 text-white font-bold flex gap-5'>o C</span>
+        </div>
         </div>
       </div>
     </div>
