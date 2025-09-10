@@ -11,6 +11,7 @@ export default {
         primary: 'hsl(243, 96%, 9%)',
         secondary : 'hsl(243, 27%, 20%)',
         button: 'hsl(233, 67%, 56%)',
+        card: 'hsl(243, 23%, 24%)'
       },
       fonts: {
          DMSans: ['DMSans-Italic']
