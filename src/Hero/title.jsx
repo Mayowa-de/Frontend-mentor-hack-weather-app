@@ -7,7 +7,7 @@ export default function title() {
       <h1 className='text-white text-4xl w-full font-bold'>How's the sky looking today?</h1>
       <div className='flex gap-3 '>
         <div className='flex items-center gap-0 '>
-      <img src={SearchIcon} className='  w-4  ml-4 absolute' alt="" /><input type="text" placeholder='Search for a place' className='w-[350px] h-10 px-10 text-sm border-none rounded-md outline-none bg-secondary'/>
+      <img src={SearchIcon} className='  w-4  ml-4 absolute ' alt="" /><input type="text" placeholder='Search for a place' className='w-[350px] h-10 px-10 text-sm border-none rounded-md text-white outline-none bg-secondary placeholder:text-grey-300'/>
       </div>
       <button className='btn font-DMSans bg-button border-none shadow-none text-white'>Search</button>
       </div>
