@@ -2,10 +2,30 @@ import React from 'react'
 
 export default function SubCloud() {
   return (
-    <div className='flex gap-5'>
-      <div className='flex flex-col gap-7 bg-secondary'>
-        <h5 className='text-3xl'>Feels like</h5>
-        <h1 className='text-5xl'>18<span className='-mt-3'>o</span></h1>
+    <div className='flex gap-5 mt-4 font-[BricolageGrotesque-Bold]'>
+      <div className='flex flex-col gap-7 bg-card text-white rounded-md justify-center p-5 w-56'>
+        <h5 className='text-2xl text-white'>Feels like</h5>
+        <div className='flex'>
+        <h1 className='text-4xl'>18</h1><span className='-mt-3 text-2 flex'>o C</span>
+        </div>
+      </div>
+      <div className='flex flex-col gap-7 bg-card text-white rounded-md justify-center p-5 w-56'>
+        <h5 className='text-2xl text-white'>Humidity</h5>
+        <div className='flex'>
+        <h1 className='text-4xl'>46%</h1>
+        </div>
+      </div>
+      <div className='flex flex-col gap-7 bg-card text-white rounded-md justify-center p-5 w-56'>
+        <h5 className='text-2xl text-white'>Wind</h5>
+        <div className='flex'>
+        <h1 className='text-4xl'>14</h1><span className='text-3xl flex  ml-2'>Km/h</span>
+        </div>
+      </div>
+      <div className='flex flex-col gap-7 bg-card text-white rounded-md justify-center p-5 w-56'>
+        <h5 className='text-2xl text-white'>Precipitation</h5>
+        <div className='flex'>
+        <h1 className='text-4xl'>0</h1><span className='text-2xl mt-2 ml-2 flex'>mm</span>
+        </div>
       </div>
     </div>
   )

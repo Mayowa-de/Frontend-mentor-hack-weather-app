@@ -2,6 +2,7 @@ import './index.css'
 import Header from "./Hero/Header.jsx"
 import Title from "./Hero/title"
 import TodayCloud from './Hero/todayCloud'
+import SubCloud from './Hero/SubCloud.jsx'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <Header/>
     <Title/>
     <TodayCloud/>
+    <SubCloud/>
     </div>
     </>
   )
