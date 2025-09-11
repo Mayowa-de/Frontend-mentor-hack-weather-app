@@ -13,6 +13,7 @@ export default {
         button: 'hsl(233, 67%, 56%)',
         card: 'hsl(243, 23%, 24%)',
         button1: 'hsl(243, 23%, 30%)',
+        borderColor:'hsl(240, 6%, 70%)'
       },
       fonts: {
          DMSans: ['DMSans-Italic']
