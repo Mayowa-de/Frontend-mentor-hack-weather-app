@@ -7,13 +7,13 @@ export default function todayCloud() {
   return (
     <div className='justify-center  mt-10'>
       <img src={Bgicon} alt="" className='h-96' />
-      <div className='z-10 top-96 justify-between flex px-7 absolute items-center w-3/4'>
-        <div className='flex flex-col gap-6 text-white'>
+      <div className='z-10 top-[460px] justify-between flex px-7 absolute items-center w-3/4'>
+        <div className='flex flex-col gap-3 text-white'>
         <h3 className='text-3xl'>Berlin, Germany</h3>
         <p>Tuesday, Aug 5, 2025</p>
         </div>
-        <div className='flex justify-end gap-12 todayCloud mr-52'>
-        <img src={SunIcon} alt="" className='w-32  -ml-40 -mt-3' />
+        <div className='flex justify-end gap-12 todayCloud mr-52 items-center'>
+        <img src={SunIcon} alt="" className='w-36  -ml-40 -mt-3' />
         <div className='flex gap-5'>
         <h1 className='text-8xl font-DMSans-Italic text-end text-white font-bold'>20</h1><span className='text-sm mt-2 -ml-5 text-white font-bold flex gap-5'>o C</span>
         </div>
