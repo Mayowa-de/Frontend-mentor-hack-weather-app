@@ -4,6 +4,7 @@ import Title from "./Hero/title";
 import TodayCloud from "./Hero/todayCloud";
 import SubCloud from "./Hero/SubCloud.jsx";
 import HourCast from "./Hero/HourCast.jsx";
+import DailyForeCast from "./Hero/DailyForeCast.jsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <div className="flex flex-col ">
             <TodayCloud />
             <SubCloud />
+            <DailyForeCast/>
           </div>
           <HourCast />
         </div>
