@@ -57,17 +57,6 @@ export default function HourCast() {
           <div className="bg-secondary rounded-md border-solid card border-borderColor p-4 ">
             <div className="flex items-center gap-2">
               <img src={OverCastIcon} alt="" className="w-5" />
-              <h4 className="flex text-sans">3</h4>
-              <span>PM</span>
-              <div className=" flex justify-end w-full">
-                <p>20 </p>
-                <span className="-mt-2 text-[12px] ">o</span>
-              </div>
-            </div>
-          </div>
-          <div className="bg-secondary rounded-md border-solid card border-borderColor p-4 ">
-            <div className="flex items-center gap-2">
-              <img src={OverCastIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">6</h4>
               <span>PM</span>
               <div className=" flex justify-end w-full">
