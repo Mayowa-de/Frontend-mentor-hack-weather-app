@@ -12,8 +12,8 @@ export default function todayCloud() {
         <h3 className='text-3xl'>Berlin, Germany</h3>
         <p>Tuesday, Aug 5, 2025</p>
         </div>
-        <div className='flex justify-items-end gap-12 todayCloud'>
-        <img src={SunIcon} alt="" className='w-32 absolute -ml-40 -mt-3' />
+        <div className='flex justify-end gap-12 todayCloud mr-52'>
+        <img src={SunIcon} alt="" className='w-32  -ml-40 -mt-3' />
         <div className='flex gap-5'>
         <h1 className='text-8xl font-DMSans-Italic text-end text-white font-bold'>20</h1><span className='text-sm mt-2 -ml-5 text-white font-bold flex gap-5'>o C</span>
         </div>
