@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SubCloud() {
   return (
-    <div className='flex gap-4 mt-4 font-[BricolageGrotesque-Bold] justify-start items-start w-full'>
+    <div className='flex gap-4  font-[BricolageGrotesque-Bold] justify-start items-start w-full'>
       <div className='flex flex-col gap-7 bg-card text-white rounded-md p-5 w-48'>
         <h5 className='text-2xl text-white'>Feels like</h5>
         <div className='flex'>
