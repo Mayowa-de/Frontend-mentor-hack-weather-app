@@ -5,8 +5,8 @@ import './Hero.css'
 
 export default function todayCloud() {
   return (
-    <div className='justify-center  mt-10'>
-      <img src={Bgicon} alt="" className='h-96' />
+    <div className='justify-center  mt-10 mb-5'>
+      <img src={Bgicon} alt="" className='h-80' />
       <div className='z-10 top-[460px] justify-between flex px-7 absolute items-center w-3/4'>
         <div className='flex flex-col gap-3 text-white'>
         <h3 className='text-3xl'>Berlin, Germany</h3>
