@@ -3,7 +3,7 @@ import dropdown from '../assets/images/icon-dropdown.svg'
 
 export default function HourCast() {
   return (
-    <div  className='flex mt-5'>
+    <div  className='flex mt-16'>
       <div className='flex gap-7  bg-card rounded-2xl p-5 w-80  text-white mt-5'>
         <div className='flex items-center top-0 gap-2'>
         <div className=' flex w-full'>
