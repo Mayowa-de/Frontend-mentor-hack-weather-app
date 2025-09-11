@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <div className='justify-center items-center flex mb-10 flex-col pb-10 px-32 '>
+    <div className='justify-center items-center flex mb-10 flex-col pb-10 px-28 '>
     <Header/>
     <Title/>
     <div className='flex gap-5'>
