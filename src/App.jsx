@@ -12,7 +12,7 @@ function App() {
       <div className=" items-center flex mb-10 flex-col pb-10 px-24 ">
         <Header />
         <Title />
-        <div className="flex gap-3">
+        <div className="flex gap-7">
           <div className="flex flex-col ">
             <TodayCloud />
             <SubCloud />
