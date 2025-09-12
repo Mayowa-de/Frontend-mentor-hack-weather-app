@@ -16,7 +16,7 @@ export default function title() {
             className="w-[450px] h-12 px-10 text-sm border-none rounded-md text-white outline-none bg-secondary placeholder:text-grey-300"
           />
         </div>
-        <button className="btn font-DMSans bg-button border-none shadow-none text-white w-24 h-12">
+        <button className="btn  bg-button border-none shadow-none text-white w-24 h-12">
           Search
         </button>
       </div>
