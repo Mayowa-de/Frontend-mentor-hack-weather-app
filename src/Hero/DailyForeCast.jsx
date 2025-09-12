@@ -9,7 +9,7 @@ import DrizzleIcon from "../assets/images/icon-drizzle.webp";
 
 export default function DailyForeCast() {
   return (
-    <div className="flex flex-col mt-10 text-white gap-4">
+    <div className="flex flex-col mt-10 text-white/90 gap-4 font-Inter">
       <h3 className="text-2xl font-sans font-semibold">Daily forecast</h3>
       <div className="flex  gap-3">
         <div className="card flex flex-col gap-5 bg-card w-28 items-center justify-center  rounded-xl p-2 shadow-xl">
