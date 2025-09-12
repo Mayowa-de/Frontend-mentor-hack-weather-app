@@ -16,7 +16,8 @@ export default {
         borderColor:'hsl(240, 6%, 70%)'
       },
       fonts: {
-         DMSans: ['DMSans-Italic']
+         DMSans: ['DMSans-Italic'],
+         Inter: ['Inter',  'sans-serif'],
       }
     },
   },
