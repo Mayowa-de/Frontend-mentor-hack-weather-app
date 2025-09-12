@@ -14,11 +14,11 @@ export default function todayCloud() {
         </div>
         <div className="flex justify-end gap-12 todayCloud mr-52 items-center">
           <img src={SunIcon} alt="" className="w-36  -ml-40 -mt-3" />
-          <div className="flex gap-5">
+          <div className="flex gap-5 italic ">
             <h1 className="text-8xl font-DMSans-Italic text-end text-white font-bold">
               20
             </h1>
-            <span className="text-sm mt-2 -ml-5 text-white font-bold flex gap-5">
+            <span className="text-xl mt-2 -ml-3 text-white font-bold flex gap-5">
               o 
             </span>
           </div>
