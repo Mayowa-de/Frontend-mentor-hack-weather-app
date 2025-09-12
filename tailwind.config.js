@@ -15,7 +15,7 @@ export default {
         button1: 'hsl(243, 23%, 30%)',
         borderColor:'hsl(240, 6%, 70%)'
       },
-      fonts: {
+      fontFamily: {
          DMSans: ['DMSans-Italic'],
          Inter: ['Inter',  'sans-serif'],
       }
