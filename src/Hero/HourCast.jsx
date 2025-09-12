@@ -9,7 +9,7 @@ import FogIcon from "../assets/images/icon-fog.webp";
 export default function HourCast() {
   return (
     <div className="flex mt-12 ">
-      <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-80  text-white ">
+      <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-80  text-white/90 ">
         <div className="flex flex-col  mt-3 gap-4">
           <div className="flex mb-4">
             <div className=" flex  mt-2">
@@ -21,7 +21,7 @@ export default function HourCast() {
               </button>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 text-white card border-borderColor/15 p-4  shadow-none h-14">
+          <div className="bg-secondary rounded-md border-2 text-white/90 card border-borderColor/15 p-4  shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={OverCastIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">3</h4>
