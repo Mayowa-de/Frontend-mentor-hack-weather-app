@@ -21,7 +21,7 @@ export default function HourCast() {
               </button>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 text-white card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 text-white card border-borderColor p-4  shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={OverCastIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">3</h4>
@@ -32,7 +32,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 items-center shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={PartlySunnyIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">4</h4>
@@ -43,7 +43,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 items-center shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={SunnyIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">5</h4>
@@ -54,7 +54,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 flex items-center shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={OverCastIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">6</h4>
@@ -65,7 +65,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 flex items-center shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={RainIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">7</h4>
@@ -76,7 +76,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 flex items-center shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={FogIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">8</h4>
@@ -87,7 +87,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 btn shadow-none h-12">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 flex items-center shadow-none h-14">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={RainIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">9</h4>
@@ -98,7 +98,7 @@ export default function HourCast() {
               </div>
             </div>
           </div>
-          <div className="bg-secondary rounded-md border-solid card border-borderColor p-4 btn h-12 shadow-none">
+          <div className="bg-secondary rounded-md border-2 card border-borderColor p-4 flex items-center h-14 shadow-none">
             <div className="flex items-center gap-2 justify-start w-full text-white">
               <img src={RainIcon} alt="" className="w-5" />
               <h4 className="flex text-sans">10</h4>
