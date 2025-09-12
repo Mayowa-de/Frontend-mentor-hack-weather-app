@@ -11,7 +11,7 @@ export default function HourCast() {
     <div className="flex mt-12 ">
       <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-80  text-white ">
         <div className="flex flex-col  mt-3 gap-4">
-          <div className="flex ">
+          <div className="flex mb-4">
             <div className=" flex  mt-2">
               <h2 className=" text-7 ">Hourly forecast</h2>
             </div>
