@@ -13,7 +13,7 @@ export default function HourCast() {
         <div className="flex flex-col  mt-3 gap-4">
           <div className="flex mb-4">
             <div className=" flex  mt-2">
-              <h2 className=" text-7 ">Hourly forecast</h2>
+              <h2 className=" text-7 font-Inter font-semibold">Hourly forecast</h2>
             </div>
             <div className="flex gap-2 ml-11">
               <button className="btn shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
