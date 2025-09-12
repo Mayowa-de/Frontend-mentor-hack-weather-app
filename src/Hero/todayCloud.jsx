@@ -19,7 +19,7 @@ export default function todayCloud() {
               20
             </h1>
             <span className="text-sm mt-2 -ml-5 text-white font-bold flex gap-5">
-              o C
+              o 
             </span>
           </div>
         </div>
