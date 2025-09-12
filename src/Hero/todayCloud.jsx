@@ -8,7 +8,7 @@ export default function todayCloud() {
     <div className="justify-center  mt-10 mb-5">
       <img src={Bgicon} alt="" className="h-80" />
       <div className="z-10 top-[460px] justify-between flex px-7 absolute items-center w-3/4">
-        <div className="flex flex-col gap-3 text-white">
+        <div className="flex flex-col gap-3 text-white/90">
           <h3 className="text-3xl">Berlin, Germany</h3>
           <p>Tuesday, Aug 5, 2025</p>
         </div>
