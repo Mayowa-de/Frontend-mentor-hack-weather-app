@@ -4,14 +4,9 @@ import dropdown from "../assets/images/icon-dropdown.svg";
 import UnitIcon from "../assets/images/icon-units.svg";
 import CheckIcon from '../assets/images/icon-checkmark.svg'
 
-export default function Hero({unit, setUnit}) {
+export default function Hero({unit, setUnit, selected, setSelected}) {
   const [open, setOpen] = useState(false);
   const [toDrop, setToDrop] = useState(false)
-  const [selected, setSelected]=useState({
-    temperature: 'Celsius (C)',
-    wind: 'Km/h',
-    precipitation: 'Millimeters (mm)'
-  })
 const toggleDown = ()=>{
     setOpen(!open)
   }
@@ -32,7 +27,7 @@ const toggleDown = ()=>{
         <div className="btn items-center p-5  border-none shadow-none  flex bg-secondary text-white px-2 h-7 rounded-md ">
          <div className="flex justify-center  gap-2">
           <img src={UnitIcon} className="w-4" alt="" />
-          <p className="text-15 font-light">Units</p>
+          <p value={unit} className="text-15 font-light">Units</p>
           <img src={dropdown} onClick={toggleDown} className="text-3"></img>
           </div>
         </div>
