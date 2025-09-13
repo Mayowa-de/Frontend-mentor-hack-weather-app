@@ -45,32 +45,32 @@ const toggleDown = ()=>{
             {/* dropdown unit  */}
             {toDrop && (
               <>
-            <h5 className="text-sm items-center flex pl-2">Temperature</h5>
+            <p className="text-sm items-center flex pl-2">Temperature</p>
             {['Celsius (C)', 'Fahrenheit (F)'].map(temp=>{
               const isSelected = selected.temperature === temp;
               return (
               <div key={temp} onClick={()=>handleSelect('temperature', temp)} className={` w-full pl-2  rounded-xl ${ isSelected ? 'h-12 bg-card' : 'bg-transparent'} cursor-pointer gap-0 flex items-center`}>
-            <h5 className="text-sm flex">{temp} {selected.temperature === temp  && <img src={CheckIcon} className="w-4 h-4 absolute ml-44"/>}</h5>
+            <p className="text-sm flex">{temp} {selected.temperature === temp  && <img src={CheckIcon} className="w-4 h-4 absolute ml-44"/>}</p>
             </div>
               )
             })}
             <hr className="text-5 w-full h-2  border-white/15" />
-            <h5 className="text-sm pl-2">Wind speed</h5>
+            <p className="text-sm pl-2">Wind Speed</p>
             {['Km/h','mph'].map(wind=>{
               const isSelected = selected.wind === wind;
               return (
               <div key={wind} onClick={()=>handleSelect('wind', wind)} className={` w-full pl-2  rounded-xl ${ isSelected ? 'h-12 bg-card' : 'bg-transparent'} cursor-pointer flex items-center`}>
-            <h5 className="text-sm flex ">{wind} {selected.wind === wind && <img src={CheckIcon} className="w-4 h-4 absolute ml-44"/>}</h5>
+            <p className="text-sm flex ">{wind} {selected.wind === wind && <img src={CheckIcon} className="w-4 h-4 absolute ml-44"/>}</p>
             </div>
               )
            })}
             <hr className="text-5 w-full h-2  border-white/15" />
-            <h5 className="text-sm pl-2">Precipitation</h5>
+            <p className="text-sm pl-2">Precipitation</p>
              {['Millimeters (mm)','Inches'].map(ppt=>{
               const isSelected = selected.precipitation === ppt;
               return (
               <div key={ppt} onClick={()=>handleSelect('precipitation', ppt)} className={` w-full pl-2  rounded-xl ${ isSelected ? 'h-12 bg-card' : 'bg-transparent'} cursor-pointer flex items-center`}>
-            <h5 className="text-sm flex ">{ppt} {selected.precipitation === ppt && <img src={CheckIcon} className="w-4 h-4 absolute ml-44 flex"/>}</h5>
+            <p className="text-sm flex ">{ppt} {selected.precipitation === ppt && <img src={CheckIcon} className="w-4 h-4 absolute ml-44 flex"/>}</p>
             </div>
              )
           })}
