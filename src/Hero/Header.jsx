@@ -54,7 +54,7 @@ const toggleDown = ()=>{
             </div>
               )
             })}
-            <hr className="text-5 w-full h-2 border-white/15" />
+            <hr className="text-5 w-full h-2  border-white/15" />
             <h5 className="text-sm pl-2">Wind speed</h5>
             {['Km/h','mph'].map(wind=>{
               const isSelected = selected.wind === wind;
