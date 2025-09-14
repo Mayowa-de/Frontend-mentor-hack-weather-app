@@ -2,28 +2,28 @@ import React from "react";
 
 export default function SubCloud() {
   return (
-    <div className="flex gap-4 justify-start  w-full font-Inter">
-      <div className="flex flex-col gap-4 bg-card text-white/90 rounded-md p-5 w-full">
+    <div className="md:flex grid grid-cols-2 gap-4 md:justify-start justify-center w-full font-Inter">
+      <div className="flex flex-col gap-4 md:w-full  bg-card text-white/90 rounded-md p-5 ">
         <h5 className="text-base font-semibold text-borderColor">Feels like</h5>
         <div className="flex">
           <h1 className="text-4xl">18</h1>
           <span className="-mt-2 text-2 flex">o </span>
         </div>
       </div>
-      <div className="flex flex-col gap-4 bg-card text-white/90 rounded-md  p-5 w-full font-Inter">
+      <div className="flex flex-col gap-4 md:w-full  bg-card text-white/90 rounded-md  p-5 font-Inter">
         <h5 className="text-base font-semibold text-borderColor">Humidity</h5>
         <div className="flex">
           <h1 className="text-4xl">46%</h1>
         </div>
       </div>
-      <div className="flex flex-col gap-4 bg-card text-white/90 rounded-md  p-5 w-full font-Inter">
+      <div className="flex flex-col md:w-full  gap-4 bg-card text-white/90 rounded-md  p-5  font-Inter">
         <h5 className="text-base font-semibold text-borderColor">Wind</h5>
         <div className="flex">
           <h1 className="text-4xl font-Inter">14</h1>
           <span className="text-3xl flex  ml-2 font-Inter">Km/h</span>
         </div>
       </div>
-      <div className="flex flex-col gap-4 bg-card text-white/90 rounded-md p-5 w-full font-Inter">
+      <div className="flex flex-col gap-4 bg-card text-white/90 rounded-md p-5 md:w-full  font-Inter">
         <h5 className="text-base font-semibold text-borderColor">Precipitation</h5>
         <div className="flex">
           <h1 className="text-4xl font-Inter">0</h1>
