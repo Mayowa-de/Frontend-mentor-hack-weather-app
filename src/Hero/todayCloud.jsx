@@ -18,27 +18,34 @@ const getWeatherIcon = (code) =>{
   if([95,96,99].includes(code)) return  icons['../assets/images/icon-storm.webp']
   if([63].includes(code)) return icons['../assets/images/icon-rain.webp']
 }
-export default function todayCloud() {
-  const [weather, setWeather] = useState(null);
+export default function todayCloud({data}) {
+  
 
-  useEffect(() =>{
-    const fetchCurrentWeather= async ()=>{
-      try{
-     const response= await axios.get('https://api.open-meteo.com/v1/forecast?latitude=48.8566&longitude=2.3522&current_weather=true&timezone=auto')
-      setWeather(response.data.current_weather)
-      console.log(response)
+  // useEffect(() =>{
+  //   const fetchCurrentWeather= async ()=>{
+  //     try{
+  //    const response= await axios.get('https://api.open-meteo.com/v1/forecast?latitude=48.8566&longitude=2.3522&current_weather=true&timezone=auto')
+  //     setWeather(response.data.current_weather)
+  //     console.log(response)
 
-    }catch(error){
-       console.error('Failed to fetch weather', error)
-    }
+  //   }catch(error){
+  //      console.error('Failed to fetch weather', error)
+  //   }
      
-    }
-    fetchCurrentWeather()
-    }, []);
+  //   }
+  //   fetchCurrentWeather()
+  //   }, []);
 
-    if(!weather) return <div className="bg-secondary text-white/90 w-full h-72 justify-center items-center flex m-12 mx-0 rounded-2xl"><img src={loadingIcon} className="w-20 h-20 animate-rotate  justify-center flex items-center"/><p className="-ml-20 z-20">Loading...</p></div>
-
-   const iconFile= getWeatherIcon(weather.weathercode)
+    if (!data || !data.current_weather.temperature) {
+    return (
+      <div className="bg-secondary text-white/90 w-full h-72 justify-center items-center flex m-12 mx-0 rounded-2xl">
+        <img src={loadingIcon} className="w-20 h-20 animate-rotate  justify-center flex items-center"/>
+        <p className="-ml-20 z-20">Loading...</p>
+      </div>
+    );
+  }
+  const {temperature, weathercode} = data.current_weather
+   const iconFile= getWeatherIcon(weathercode)
 
     const date = new Date()
     const currentYear= date.getFullYear()
@@ -58,7 +65,7 @@ export default function todayCloud() {
           <img src={iconFile} alt="" className="w-36  -ml-40 -mt-3" />
           <div className="flex gap-5 italic ">
             <h1 className="text-8xl font-DMSans-Italic text-end text-white font-bold">
-              {weather.temperature}
+              {temperature}
             </h1>
             <span className="text-xl mt-2 -ml-3 text-white font-bold flex gap-5">
               o 
