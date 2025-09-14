@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
 
-export default function title({onSearch}) {
+export default function Title({onSearch}) {
   const [location, setLocation] =useState('')
 
   const handleSearch = () =>{
