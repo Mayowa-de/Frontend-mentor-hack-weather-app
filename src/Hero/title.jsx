@@ -9,9 +9,11 @@ export default function title({onSearch}) {
   }
   return (
     <div className="justify-center flex items-center flex-col gap-20 mt-20 max-w-full">
-      <h1 className="text-white text-5xl w-full font-bold flex">
+      <div className="flex items-center justify-center">
+      <h1 className="text-white text-5xl  font-bold ">
         How's the sky looking today?
       </h1>
+      </div>
       <div className="md:flex gap-3 flex flex-col w-full">
         <div className="flex items-center gap-0 ">
           <img src={SearchIcon} className="  w-4  ml-4 absolute pointer-events-none" alt="" />
