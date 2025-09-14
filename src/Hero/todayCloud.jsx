@@ -38,7 +38,7 @@ export default function todayCloud({data}) {
 
     if (!data || !data.current_weather.temperature) {
     return (
-      <div className="bg-secondary text-white/90 w-full h-72 justify-center items-center flex m-12 mx-0 rounded-2xl">
+      <div className="bg-secondary text-white/90  md:w-[850px] w-full h-72 justify-center items-center flex m-12 mx-0 rounded-2xl">
         <img src={loadingIcon} className="w-20 h-20 animate-rotate  justify-center flex items-center"/>
         <p className="-ml-20 z-20">Loading...</p>
       </div>
