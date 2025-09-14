@@ -8,13 +8,13 @@ export default function title({onSearch}) {
     onSearch(location)
   }
   return (
-    <div className="justify-center flex items-center flex-col gap-20 mt-20 max-w-full">
-      <div className="flex items-center justify-center">
-      <h1 className="text-white text-5xl  font-bold ">
+    <div className="justify-center flex items-center flex-col gap-20 mt-20 ">
+      <div className="flex ">
+      <h1 className="text-white text-5xl flex text-center  font-bold ">
         How's the sky looking today?
       </h1>
       </div>
-      <div className="md:flex gap-3 flex flex-col w-full">
+      <div className="md:flex gap-3 grid grid-cols-1 w-full justify-center items-center">
         <div className="flex items-center gap-0 ">
           <img src={SearchIcon} className="  w-4  ml-4 absolute pointer-events-none" alt="" />
           <input
