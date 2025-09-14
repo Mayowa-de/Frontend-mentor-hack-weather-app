@@ -36,7 +36,7 @@ useEffect(()=>{
 
   return (
     <>
-      <div className=" items-center flex mb-10 flex-col pb-10 px-24 ">
+      <div className=" items-center flex mb-10 flex-col px-2 md:px-24 ">
         <Header unit={unit} setUnit={setUnit} selected={selected} setSelected={setSelected} />
         <Title  />
         <div className="flex gap-7 flex-col justify-center md:flex">
