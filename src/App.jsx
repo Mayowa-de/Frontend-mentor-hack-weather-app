@@ -39,7 +39,7 @@ useEffect(()=>{
       <div className=" items-center flex mb-10 flex-col pb-10 px-24 ">
         <Header unit={unit} setUnit={setUnit} selected={selected} setSelected={setSelected} />
         <Title  />
-        <div className="flex gap-7">
+        <div className="flex gap-7 flex-col justify-center md:flex">
           <div className="flex flex-col ">
             <TodayCloud  data={weatherData}/>
             <SubCloud />
