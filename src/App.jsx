@@ -41,7 +41,7 @@ useEffect(()=>{
     <>
       <div className="pb-10 items-center flex mb-10 flex-col px-2 md:px-24 ">
         <Header unit={unit} setUnit={setUnit} selected={selected} setSelected={setSelected} />
-        <Title />
+        <Title onSearch={handleSearch}/>
         <div className="grid gap-7 grid-cols-1 w-full  md:flex ">
           <div className="flex flex-col ">
             <TodayCloud  data={weatherData}/>
