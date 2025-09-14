@@ -18,6 +18,9 @@ const [selected, setSelected] = useState({
 const [weatherData, setWeatherData] = useState(null)
 const [coordinate, setCoordinate] =  useState({latitude: 0, longitude: 0})
 
+const handleSearch  = (location)=>{
+ 
+}
 useEffect(()=>{
   navigator.geolocation.getCurrentPosition((position)=>{
     setCoordinate({
@@ -38,7 +41,7 @@ useEffect(()=>{
     <>
       <div className="pb-10 items-center flex mb-10 flex-col px-2 md:px-24 ">
         <Header unit={unit} setUnit={setUnit} selected={selected} setSelected={setSelected} />
-        <Title  />
+        <Title />
         <div className="grid gap-7 grid-cols-1 w-full  md:flex ">
           <div className="flex flex-col ">
             <TodayCloud  data={weatherData}/>
