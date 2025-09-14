@@ -9,13 +9,13 @@ import FogIcon from "../assets/images/icon-fog.webp";
 export default function HourCast() {
   return (
     <div className="flex mt-12 ">
-      <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-80  text-white/90 ">
-        <div className="flex flex-col  mt-3 gap-4">
-          <div className="flex mb-4">
-            <div className=" flex  mt-2">
+      <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-full  text-white/90 ">
+        <div className="flex flex-col  mt-3 gap-4 w-full">
+          <div className="flex mb-4 w-full">
+            <div className=" flex  mt-2 w-full">
               <h2 className=" text-7 font-Inter font-semibold">Hourly forecast</h2>
             </div>
-            <div className="flex gap-2 ml-11">
+            <div className="flex gap-2 justify-end w-full">
               <button className="btn shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
                 Tuesday <img src={dropdown} alt="" />
               </button>
