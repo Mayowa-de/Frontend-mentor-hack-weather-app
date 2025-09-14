@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 import Header from "./Hero/Header.jsx";
-import Title from "./Hero/title";
-import TodayCloud from "./Hero/todayCloud";
+import Title from "./Hero/Title.jsx";
+import TodayCloud from "./Hero/TodayCloud.jsx";
 import SubCloud from "./Hero/SubCloud.jsx";
 import HourCast from "./Hero/HourCast.jsx";
 import DailyForeCast from "./Hero/DailyForeCast.jsx";
