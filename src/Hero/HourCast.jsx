@@ -8,7 +8,7 @@ import FogIcon from "../assets/images/icon-fog.webp";
 
 export default function HourCast() {
   return (
-    <div className="flex mt-12 ">
+    <div className="flex mt-12 w-full">
       <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-full  text-white/90 ">
         <div className="flex flex-col  mt-3 gap-4 w-full">
           <div className="flex mb-4 w-full">
