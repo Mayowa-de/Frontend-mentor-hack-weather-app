@@ -20,22 +20,6 @@ const getWeatherIcon = (code) =>{
 }
 export default function todayCloud({data}) {
   
-
-  // useEffect(() =>{
-  //   const fetchCurrentWeather= async ()=>{
-  //     try{
-  //    const response= await axios.get('https://api.open-meteo.com/v1/forecast?latitude=48.8566&longitude=2.3522&current_weather=true&timezone=auto')
-  //     setWeather(response.data.current_weather)
-  //     console.log(response)
-
-  //   }catch(error){
-  //      console.error('Failed to fetch weather', error)
-  //   }
-     
-  //   }
-  //   fetchCurrentWeather()
-  //   }, []);
-
     if (!data || !data.current_weather.temperature) {
     return (
       <div className="bg-secondary text-white/90  md:w-[850px] w-full h-72 justify-center items-center flex m-12 mx-0 rounded-2xl">
@@ -54,9 +38,9 @@ export default function todayCloud({data}) {
     const day=date.toLocaleDateString('en-US', {weekday: 'long'})
     const time = date.toLocaleTimeString('en-US', {hour: '2-digit',minute:"2-digit"})
   return (
-    <div className="justify-center  mt-10 mb-5">
+    <div className="justify-center  mt-10 mb-5 w-full">
       <img src={Bgicon} alt="" className="h-80" />
-      <div className="z-10 top-[460px] justify-between flex px-7 absolute items-center w-full md:w-3/4">
+      <div className="z-10 top-[460px] justify-between md:flex grid grid-cols-1 px-7 absolute items-center w-full md:w-3/4">
         <div className="flex flex-col gap-3 text-white/90">
           <h3 className="text-3xl">France</h3>
           <p>{day}, {month} {dayNumber}, {currentYear}</p>
