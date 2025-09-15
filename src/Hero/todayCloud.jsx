@@ -18,7 +18,7 @@ const getWeatherIcon = (code) =>{
   if([95,96,99].includes(code)) return  icons['../assets/images/icon-storm.webp']
   if([63].includes(code)) return icons['../assets/images/icon-rain.webp']
 }
-export default function todayCloud({data}) {
+export default function TodayCloud({data}) {
   
     if (!data || !data.current_weather.temperature) {
     return (
