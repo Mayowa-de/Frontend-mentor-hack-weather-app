@@ -39,8 +39,8 @@ export default function TodayCloud({data}) {
     const time = date.toLocaleTimeString('en-US', {hour: '2-digit',minute:"2-digit"})
   return (
     <div className="justify-center  mt-10 mb-5 w-full">
-      <img src={Bgicon} alt="" className="h-80" />
-      <div className="z-10 top-[460px] justify-between md:flex grid grid-cols-1 px-7 absolute items-center w-full md:w-3/4">
+      <img src={Bgicon} alt="" className="h-80 z-10" />
+      <div className="z-20 top-[460px] justify-between md:flex grid grid-cols-1 px-7 absolute items-center w-full md:w-3/4">
         <div className="flex flex-col gap-3 text-white/90">
           <h3 className="text-3xl">France</h3>
           <p>{day}, {month} {dayNumber}, {currentYear}</p>
