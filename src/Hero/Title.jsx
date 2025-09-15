@@ -3,10 +3,6 @@ import SearchIcon from "../assets/images/icon-search.svg";
 
 export default function Title({onSearch}) {
   const [location, setLocation] =useState('')
-
-  const handleSearch = () =>{
-    onSearch(location)
-  }
   return (
     <div className="justify-center flex items-center flex-col gap-20 mt-20 ">
       <div className="flex ">
@@ -24,7 +20,7 @@ export default function Title({onSearch}) {
             className="md:w-[450px] w-full h-12 px-10 text-xl border-none rounded-md text-white outline-white outline-1 bg-secondary placeholder:text-grey-300"
           />
         </div>
-        <button onClick={handleSearch} className="btn font-normal  bg-button border-none shadow-none text-white md:w-24 w-full h-12 text-xl">
+        <button onClick={()=>onSearch(location)} className="btn font-normal  bg-button border-none shadow-none text-white md:w-24 w-full h-12 text-xl">
           Search
         </button>
       </div>

@@ -16,25 +16,47 @@ const [selected, setSelected] = useState({
   precipitation: 'Millimeters (mm)'
 });
 const [weatherData, setWeatherData] = useState(null)
-const [coordinate, setCoordinate] =  useState({latitude: 0, longitude: 0})
+  // Default to Paris, France
+const [coordinate, setCoordinate] = useState({ latitude: 48.8566, longitude: 2.3522 });
 
-const handleSearch  = (location)=>{
- 
-}
-useEffect(()=>{
-  navigator.geolocation.getCurrentPosition((position)=>{
-    setCoordinate({
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    })
-  if (coordinate.latitude !== 0 && coordinate.longitude !== 0) {
+  // Try to get user's coordinates on mount
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setCoordinate({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        });
+      },
+      (error) => {
+        // If denied or error, keep default (France)
+        console.log("Geolocation error or denied, using default (France)");
+      }
+    );
+  }, []);
+
+const handleSearch = (locationInput) => {
+  fetchWeatherData(coordinate, selected, locationInput)
+    .then(data => setWeatherData(data))
+    .catch(err => console.error(err));
+};
+
+// useEffect(() => {
+//   navigator.geolocation.getCurrentPosition((position) => {
+//     setCoordinate({
+//       latitude: position.coords.latitude,
+//       longitude: position.coords.longitude,
+//     });
+//   });
+// }, []); // Only run once on mount
+
+useEffect(() => {
+  if (coordinate.latitude  && coordinate.longitude) {
     fetchWeatherData(coordinate, selected)
       .then(data => setWeatherData(data))
       .catch(err => console.error(err));
   }
-
-  })
-}, [coordinate, selected])
+}, [coordinate, selected]);
 // Pass as props
 
   return (

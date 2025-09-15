@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import Bgicon from "../assets/images/bg-today-large.svg";
-import SunIcon from "../assets/images/icon-sunny.webp";
 import loadingIcon from "../assets/images/icon-loading.svg"
 import "./Hero.css";
 
@@ -19,8 +18,8 @@ const getWeatherIcon = (code) =>{
   if([63].includes(code)) return icons['../assets/images/icon-rain.webp']
 }
 export default function TodayCloud({data}) {
-  
-    if (!data || !data.current_weather.temperature) {
+  // Error handling of the loading state
+    if (!data || !data.current_weather) {
     return (
       <div className="bg-secondary text-white/90  md:w-[800px] w-full h-72 justify-center items-center flex flex-col m-12 mx-0 rounded-2xl">
         <img src={loadingIcon} className="w-10 h-20 animate-rotate  justify-center flex items-center"/>
@@ -28,9 +27,11 @@ export default function TodayCloud({data}) {
       </div>
     );
   }
-  const {temperature, weathercode} = data.current_weather
+  // declare value to fetch 
+  const {temperature,country,city, weathercode} = data.current_weather
    const iconFile= getWeatherIcon(weathercode)
 
+   // date,  day and year fetching
     const date = new Date()
     const currentYear= date.getFullYear()
     const month = date.toLocaleDateString('en-US', {month: 'long'})
@@ -38,17 +39,19 @@ export default function TodayCloud({data}) {
     const day=date.toLocaleDateString('en-US', {weekday: 'long'})
     const time = date.toLocaleTimeString('en-US', {hour: '2-digit',minute:"2-digit"})
   return (
-    <div className="justify-center  mt-10 mb-5 w-full">
-      <img src={Bgicon} alt="" className="h-80 z-10" />
-      <div className="z-20 top-[460px] justify-between md:flex grid grid-cols-1 px-7 absolute items-center w-full md:w-3/4">
-        <div className="flex flex-col gap-3 text-white/90">
-          <h3 className="text-3xl">France</h3>
+    <div className="justify-center items-center  mt-10 mb-5 w-full ">
+      <div className='w-full flex h-[300px] relative '>
+      <img src={Bgicon} alt="" className=" z-10 w-full absolute h-full object-cover rounded-xl" />
+      </div>
+      <div className="z-20 md:top-[460px] gap-10 top-[520px] justify-between md:flex grid grid-cols-1 px-7 absolute items-center w-full md:w-3/4">
+        <div className="flex flex-col gap-3 text-white/90 items-center">
+          <h3 className="text-3xl">{country}, {city}</h3>
           <p>{day}, {month} {dayNumber}, {currentYear}</p>
         </div>
-        <div className="flex justify-end gap-12 todayCloud mr-52 items-center">
-          <img src={iconFile} alt="" className="w-36  -ml-40 -mt-3" />
+        <div className="flex justify-end md:gap-12 todayCloud gap-20 items-center">
+          <img src={iconFile} alt="" className="md:w-36 w-24 -ml-40 -mt-3" />
           <div className="flex gap-5 italic ">
-            <h1 className="text-8xl font-DMSans-Italic text-end text-white font-bold">
+            <h1 className="md:text-8xl text-6xl font-DMSans-Italic text-end text-white font-bold">
               {temperature}
             </h1>
             <span className="text-xl mt-2 -ml-3 text-white font-bold flex gap-5">
