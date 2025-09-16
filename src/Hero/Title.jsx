@@ -34,7 +34,7 @@ export default function Title({onSearch}) {
       </div>
       <div className="md:flex gap-3 grid grid-cols-1 w-full justify-center items-center">
         <div className="flex items-center  ">
-          <img src={SearchIcon} className="  w-4  ml-4 absolute pointer-events-none" alt="" />
+          <img src={SearchIcon} className="  w-4  ml-4 absolute pointer-events-none" alt="search icon" />
           <input
             type="text"
             value={location}
@@ -53,12 +53,12 @@ export default function Title({onSearch}) {
         <div className="flex flex-col   text-white">
           {location.trim()=== '' ? (
             <div className="flex gap-2 z-20 p-2  items-center">
-          <img src={loadIcon} alt="" className="w-3 h-3" /><p className="">Search city name...</p>
+          <img src={loadIcon} alt="loading icon" className="w-3 h-3" /><p className="">Search city name...</p>
           </div>
           ) : (
           [1,2,3].map((i)=>(
           <div key={i} className="flex gap-2 items-center">
-          <img src={loadIcon} alt="" className="w-3 h-3" /><p className="flex gap-2">{location}</p>
+          <img src={loadIcon} alt="loading icon" className="w-3 h-3" /><p className="flex gap-2">{location}</p>
           </div>
           ))
           )}
