@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchIcon from "../assets/images/icon-search.svg";
+import loadIcon from "../assets/images/icon-loading.svg"
 
 export default function Title({onSearch}) {
   const [location, setLocation] =useState('')
@@ -11,7 +12,7 @@ export default function Title({onSearch}) {
       </h1>
       </div>
       <div className="md:flex gap-3 grid grid-cols-1 w-full justify-center items-center">
-        <div className="flex items-center gap-0 ">
+        <div className="flex items-center  ">
           <img src={SearchIcon} className="  w-4  ml-4 absolute pointer-events-none" alt="" />
           <input
             type="text"
@@ -23,6 +24,19 @@ export default function Title({onSearch}) {
         <button onClick={()=>onSearch(location)} className="btn font-normal  bg-button hover:bg-button/45 border-none shadow-none text-white md:w-24 w-full h-12 text-xl">
           Search
         </button>
+      </div>
+      <div className="p-2 flex mt-80 md:-ml-28 rounded-xl shadow-xl md:w-[450px] w-full bg-secondary absolute px-4">
+        <div className="flex flex-col gap-3 mt-2 text-white">
+          <div className="flex gap-2 items-center">
+          <img src={loadIcon} alt="" className="w-3 h-3" /><p className="flex gap-2"> Search city name...</p>
+          </div>
+          <div className="flex gap-2 items-center">
+          <img src={loadIcon} alt="" className="w-3 h-3" /><p className="flex gap-2"> Search city name...</p>
+          </div>
+          <div className="flex gap-2 items-center">
+          <img src={loadIcon} alt="" className="w-3 h-3" /><p className="flex gap-2"> Search city name...</p>
+          </div>
+      </div>
       </div>
     </div>
   );
