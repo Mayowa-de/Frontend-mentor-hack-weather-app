@@ -43,7 +43,7 @@ export default function TodayCloud({data}) {
       <div className='w-full flex h-[300px] relative '>
       <img src={Bgicon} alt="" className=" z-10 w-full absolute h-full object-cover rounded-xl" />
       </div>
-      <div className="z-20 md:top-[460px] gap-10 top-[520px] justify-between md:flex grid grid-cols-1 px-7 absolute items-center w-full md:w-3/4">
+      <div className="z-20 md:top-[460px] gap-10 top-[520px] justify-between md:flex grid grid-cols-1 px-7 absolute md:items-center w-full md:w-1/">
         <div className="flex flex-col gap-3 text-white/90 items-center">
           <h3 className="text-3xl">{country}, {city}</h3>
           <p>{day}, {month} {dayNumber}, {currentYear}</p>
