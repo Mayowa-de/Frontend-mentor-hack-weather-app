@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import dropdown from "../assets/images/icon-dropdown.svg";
 import OverCastIcon from "../assets/images/icon-overcast.webp";
 import PartlySunnyIcon from "../assets/images/icon-partly-cloudy.webp";
@@ -7,8 +7,13 @@ import RainIcon from "../assets/images/icon-rain.webp";
 import FogIcon from "../assets/images/icon-fog.webp";
 
 export default function HourCast() {
+  const [showDays, setShowDays] = useState(false)
+
+  const handleShowDays = ()=>{
+    setShowDays(!showDays)
+  }
   return (
-    <div className="flex mt-12 w-full">
+    <div className="flex mt-12 w-full relative">
       <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-full  text-white/90 ">
         <div className="flex flex-col  mt-3 gap-4 w-full">
           <div className="flex mb-4 w-full">
@@ -16,7 +21,7 @@ export default function HourCast() {
               <h2 className=" text-7 font-Inter font-semibold">Hourly forecast</h2>
             </div>
             <div className="flex gap-2 justify-end w-full">
-              <button className="btn shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
+              <button onClick={handleShowDays} className="btn  focus:outline-white focus:outline-2 shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
                 Tuesday <img src={dropdown} alt="" />
               </button>
             </div>
@@ -111,6 +116,33 @@ export default function HourCast() {
           </div>
         </div>
       </div>
+      {showDays && (
+      <div className="absolute flex w-full md:w-[250px] top-20 md:top-[450px] md:ml-16">
+        <div className="flex justify-center flex-col gap-2 pt-2 bg-secondary rounded-xl shadow-xl  p-2 w-full">
+          <div className="bg-card rounded-xl   text-white text-5 p-2 px-2 w-full">
+          <h3>Monday</h3>
+          </div>
+          <div className="text-5 rounded-xl text-white p-2 px-2 w-full">
+          <h3>Tuesday</h3>
+          </div>
+          <div className="text-5 rounded-xl text-white p-2 px-2 w-full">
+          <h3>Wednesday</h3>
+          </div>
+          <div className=" rounded-xl  text-white  p-2 px-2 w-full text-5">
+          <h3>Thursday</h3>
+          </div>
+          <div className=" rounded-xl text-white p-2 px-2 w-full text-5">
+          <h3>Friday</h3>
+          </div>
+          <div className=" rounded-xl text-white p-2 px-2 w-full text-5">
+          <h3>Saturday</h3>
+          </div>
+          <div className=" rounded-xl text-white text-5 p-2 px-2 w-full" >
+          <h3>Sunday</h3>
+          </div>
+        </div>
+      </div>
+      )}
     </div>
   );
 }
