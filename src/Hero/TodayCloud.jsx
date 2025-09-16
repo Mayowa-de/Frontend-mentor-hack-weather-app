@@ -22,7 +22,7 @@ export default function TodayCloud({data}) {
     if (!data || !data.current_weather) {
     return (
       <div className="bg-secondary text-white/90  md:w-[800px] w-full h-72 justify-center items-center flex flex-col m-12 mx-0 rounded-2xl">
-        <img src={loadingIcon} className="w-10 h-20 animate-rotate  justify-center flex items-center"/>
+        <img src={loadingIcon} className="w-10 h-20 animate-rotate  justify-center flex items-center" alt="loading icon"/>
         <p className="-ml-1 ">Loading...</p>
       </div>
     );
