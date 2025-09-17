@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "../assets/images/logo.svg";
 import dropdown from "../assets/images/icon-dropdown.svg";
 import UnitIcon from "../assets/images/icon-units.svg";
@@ -7,6 +7,7 @@ import CheckIcon from '../assets/images/icon-checkmark.svg'
 export default function Hero({unit, setUnit, selected, setSelected}) {
   const [open, setOpen] = useState(false);
   const [toDrop, setToDrop] = useState(false)
+  const dropdownRef =useRef(null)
 const toggleDown = ()=>{
     setOpen(!open)
   }
@@ -17,6 +18,27 @@ const toggleDown = ()=>{
   const handleSelect = (category,value)=>{
     setSelected(prev =>({...prev, [category]:value}))
   }
+
+  useEffect(()=>{
+    function handleClickOutside(event){
+       if(dropdownRef.current && !dropdownRef.current.contains(event.target)){
+        setOpen(false)
+       }
+    }
+    function handleEscClick(event){
+      if(event.key==='Escape'){
+        setOpen(false)
+      }
+    }
+    if(open){
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keypress',handleEscClick)
+    }
+    return ()=>{
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keypress', handleEscClick)
+    }
+  }, [open])
   return (
     <div className="w-full flex   mt-5">
       <div className="w-full justify-between flex   mt-2">
@@ -32,7 +54,7 @@ const toggleDown = ()=>{
           </div>
         </button>
         {open &&(
-            <div className="bg-secondary w-56 pb-2 rounded-xl  absolute top-20 z-10 shadow-xl transition ease-out">
+            <div ref={dropdownRef} className="bg-secondary w-56 pb-2 rounded-xl  absolute top-20 z-10 shadow-xl transition ease-out">
             <div className="flex flex-col gap-3 p-2 text-white/90">
             <div onClick={toggleDropDown} className="bg-card cursor-pointer w-full h-12 rounded-xl flex items-center">
             <h5 className="text-base p-2 ">Switch to imperial</h5>
