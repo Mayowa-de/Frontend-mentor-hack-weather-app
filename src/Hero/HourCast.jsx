@@ -6,11 +6,35 @@ import SunnyIcon from "../assets/images/icon-sunny.webp";
 import RainIcon from "../assets/images/icon-rain.webp";
 import FogIcon from "../assets/images/icon-fog.webp";
 
+const icons = import.meta.glob('../assets/images/*',{
+  eager: true,
+  import: 'default'
+})
+const getWeatherIcon = (code) =>{
+  if([0,1].includes(code)) return  icons['../assets/images/icon-sunny.webp']
+  if([2,3].includes(code)) return  icons['../assets/images/icon-partly-cloudy.webp']
+  if([45,48].includes(code)) return  icons['../assets/images/icon-fog.webp']
+  if([51,61,63,65].includes(code)) return  icons['../assets/images/icon-drizzle.webp']
+  if([71,73,75,77].includes(code)) return  icons['../assets/images/icon-snow.webp']
+  if([95,96,99].includes(code)) return  icons['../assets/images/icon-storm.webp']
+  if([63].includes(code)) return icons['../assets/images/icon-rain.webp']
+}
 
 export default function HourCast({ weatherData }) {
   const [showDays, setShowDays] = useState(false);
-  const [SelectedDays, setSelectedDays] = useState("Wednesday");
-  const days = ['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday','Sunday'];
+  const [SelectedDays, setSelectedDays] = useState('');
+ const days = weatherData && weatherData.daily && weatherData.daily.time
+  ? weatherData.daily.time.map(dateStr =>
+      new Date(dateStr).toLocaleDateString('en-US', { weekday: 'long' })
+    )
+  : [];
+   const iconFile= getWeatherIcon(weathercode)
+  useEffect(() => {
+  if (days.length > 0 && !SelectedDays) {
+    setSelectedDays(days[0]);
+  }
+}, [days, SelectedDays]);
+
   const dropdownRef = useRef(null);
 
   // ...handleShowDays and useEffect for outside click/ESC...
@@ -20,10 +44,9 @@ let selectedDate = null;
 if (weatherData && weatherData.daily && weatherData.daily.time) {
   // Find the index of the selected day in the days array
   const selectedIndex = days.findIndex(
-    d => d.toLowerCase() === SelectedDays.toLowerCase()
-  );
-  // Use the same index to get the date from the API's daily.time array
-  selectedDate = weatherData.daily.time[selectedIndex];
+  d => d.toLowerCase() === SelectedDays.toLowerCase()
+);
+const selectedDate = weatherData?.daily?.time[selectedIndex];
 }
 
 
@@ -65,7 +88,7 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
               <div key={hour.time} className="bg-secondary rounded-md border-2 text-white/90 card border-borderColor/15 p-4 shadow-none h-14 flex items-center">
                 <div className="flex items-center gap-2 justify-start w-full text-white">
                   {/* You can use your getWeatherIcon function here */}
-                  <span className="w-5">{/* icon here */}</span>
+                  <span className="w-5">{iconFile}</span>
                   <h4 className="flex text-sans">{new Date(hour.time).getHours()}</h4>
                   <span>PM</span>
                   <div className=" flex justify-end w-full">

@@ -70,7 +70,7 @@ useEffect(() => {
             <SubCloud />
             <DailyForeCast/>
           </div>
-          <HourCast />
+          <HourCast weatherData={weatherData}/>
         </div>
       </div>
     </>
