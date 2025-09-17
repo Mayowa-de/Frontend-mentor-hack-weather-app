@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import dropdown from "../assets/images/icon-dropdown.svg";
 import OverCastIcon from "../assets/images/icon-overcast.webp";
 import PartlySunnyIcon from "../assets/images/icon-partly-cloudy.webp";
@@ -6,12 +6,40 @@ import SunnyIcon from "../assets/images/icon-sunny.webp";
 import RainIcon from "../assets/images/icon-rain.webp";
 import FogIcon from "../assets/images/icon-fog.webp";
 
-export default function HourCast() {
-  const [showDays, setShowDays] = useState(false)
 
-  const handleShowDays = ()=>{
+export default function HourCast() {
+  const [showDays, setShowDays] = useState(false);
+  const [SelectedDays, setSelectedDays] = useState("Wednesday");
+  const days = ['Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday','Sunday'];
+  const dropdownRef = useRef(null);
+
+  const handleShowDays= ()=>{
     setShowDays(!showDays)
   }
+ 
+  // Close dropdown on outside click or ESC
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDays(false);
+      }
+    }
+    function handleEsc(event) {
+      if (event.key === "Escape") {
+        setShowDays(false);
+      }
+    }
+    if (showDays) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("keydown", handleEsc);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+    
+  }, [showDays]);
+
   return (
     <div className="flex mt-12 w-full relative">
       <div className="flex gap-7   bg-card rounded-2xl pt-4 px-4 w-full  text-white/90 ">
@@ -22,7 +50,7 @@ export default function HourCast() {
             </div>
             <div className="flex gap-2 justify-end w-full">
               <button onClick={handleShowDays} className="btn  focus:outline-white focus:outline-2 shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
-                Tuesday <img src={dropdown} alt="" />
+                {SelectedDays} <img src={dropdown} alt="" />
               </button>
             </div>
           </div>
@@ -117,29 +145,17 @@ export default function HourCast() {
         </div>
       </div>
       {showDays && (
-      <div className="absolute flex w-full md:w-[250px] top-20 md:top-[450px] md:ml-16">
-        <div className="flex justify-center flex-col gap-2 pt-2 bg-secondary rounded-xl shadow-xl  p-2 w-full">
-          <div className="bg-card rounded-xl   text-white text-5 p-2 px-2 w-full">
-          <h3>Monday</h3>
+      <div  className="z-20 absolute flex w-full md:w-[305px] top-20 md:top-[78px] ">
+        <div ref={dropdownRef} className="flex justify-center flex-col gap-2 pt-2  bg-secondary ml-28 rounded-xl shadow-xl  p-2 w-56">
+          {days.map((day)=>(
+          <div key={day} onClick={()=>{
+           
+            setSelectedDays(day); 
+            setShowDays(false)
+          }} className={` ${SelectedDays === day ? 'bg-card' : 'bg-transparent'} rounded-xl  text-white text-5 p-2 px-2 w-full`}>
+          <h3 >{day}</h3>
           </div>
-          <div className="text-5 rounded-xl text-white p-2 px-2 w-full">
-          <h3>Tuesday</h3>
-          </div>
-          <div className="text-5 rounded-xl text-white p-2 px-2 w-full">
-          <h3>Wednesday</h3>
-          </div>
-          <div className=" rounded-xl  text-white  p-2 px-2 w-full text-5">
-          <h3>Thursday</h3>
-          </div>
-          <div className=" rounded-xl text-white p-2 px-2 w-full text-5">
-          <h3>Friday</h3>
-          </div>
-          <div className=" rounded-xl text-white p-2 px-2 w-full text-5">
-          <h3>Saturday</h3>
-          </div>
-          <div className=" rounded-xl text-white text-5 p-2 px-2 w-full" >
-          <h3>Sunday</h3>
-          </div>
+           ))}
         </div>
       </div>
       )}

@@ -10,10 +10,22 @@ This folder contianing the template [#Header,#title#todayCloud], since the proje
 ### Header 
 This is a Javascript component file containing Logo and unit conversion button, the header section at the top of the webpage.
 
-### title
+### Title
 This is a Javascript component file containing the title and search functionality, the search functionality collect the input of the user and  filter suggestion results.
 
-### todayCloud
+### TodayCloud
 This is a Javascript component file containing the today cloud section, it deliver the current country, date  and weather.
+
+###  SubCloud
+This is a Javascript component file containing the (Humidity,  wind, temperature, precipitation), of the today TodayCloud.
+
+### DailyForeCast  
+This is  a Javascript component  file containing the daily weather forecast for each days of the week.
+
+### HourCast 
+This is a Javascript component file containing the Hourly weather forcast of each days of the week.
+
+### api
+This is a Javascript component file where the API[#Open-meteo-api] is being fetched.
 
 
