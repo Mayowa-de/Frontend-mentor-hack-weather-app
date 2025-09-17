@@ -1,4 +1,3 @@
-import React from 'react'
 
 export const fetchWeatherData = async (coordinate, selected, locationInput = '') => {
   let latitude = coordinate.latitude;
@@ -29,6 +28,7 @@ export const fetchWeatherData = async (coordinate, selected, locationInput = '')
       city = revGeoData.features[0].properties.city || revGeoData.features[0].properties.name;
     }
   }
+   
 
   // Fetch weather data
   const unit = selected.temperature === 'Fahrenheit (F)' ? 'fahrenheit' : 'celsius';
