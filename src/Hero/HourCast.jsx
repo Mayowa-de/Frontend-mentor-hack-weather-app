@@ -107,7 +107,7 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
             </div>
           </div>
           {hourlyForDay.length === 0 ? (
-            <div className="text-white">No hourly data for this day.</div>
+            <div className="text-white p-4 rounded-xl   bg-loadingColor/5 w-full h-full">No hourly data for this day.</div>
           ) : (
             hourlyForDay.map((hour, idx) => {
               const hourNum = new Date(hour.time).getHours();
