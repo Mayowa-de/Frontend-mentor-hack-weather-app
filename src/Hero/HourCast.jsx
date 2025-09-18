@@ -93,7 +93,7 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
   
 
   return (
-    <div className="flex mt-12 w-full relative ">
+    <div className="flex mt-12 w-full md:w-[330px] relative ">
       <div className="flex gap-7 bg-card rounded-2xl pt-4 px-4 w-full text-white/90 pb-4">
         <div className="flex flex-col mt-3 gap-4 w-full">
           <div className="flex mb-4 w-full">
