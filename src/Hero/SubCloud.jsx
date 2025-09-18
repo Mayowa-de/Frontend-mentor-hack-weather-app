@@ -1,10 +1,11 @@
 import React from "react";
 
 export default function SubCloud({ weatherData }) {
+  const data =[1,2,3,4]
+ 
   if (!weatherData || !weatherData.current_weather) {
-    return <div>Loading...</div>;
+    return <div>loading</div>
   }
-
   const { temperature, windspeed, precipitation, relative_humidity_2m } = weatherData.current_weather;
   return (
     <div className="md:flex grid grid-cols-2 gap-2 md:justify-start justify-center w-full font-Inter">
