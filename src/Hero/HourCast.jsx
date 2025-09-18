@@ -6,6 +6,7 @@ import SunnyIcon from "../assets/images/icon-sunny.webp";
 import RainIcon from "../assets/images/icon-rain.webp";
 import FogIcon from "../assets/images/icon-fog.webp";
 
+//import weather icons
 const icons = import.meta.glob('../assets/images/*',{
   eager: true,
   import: 'default'
@@ -28,13 +29,15 @@ export default function HourCast({ weatherData }) {
       new Date(dateStr).toLocaleDateString('en-US', { weekday: 'long' })
     )
   : [];
-   const iconFile= getWeatherIcon(weathercode)
+
+
   useEffect(() => {
   if (days.length > 0 && !SelectedDays) {
     setSelectedDays(days[0]);
   }
 }, [days, SelectedDays]);
 
+// dropdown accesibility
   const dropdownRef = useRef(null);
 
   // ...handleShowDays and useEffect for outside click/ESC...
@@ -88,7 +91,9 @@ const selectedDate = weatherData?.daily?.time[selectedIndex];
               <div key={hour.time} className="bg-secondary rounded-md border-2 text-white/90 card border-borderColor/15 p-4 shadow-none h-14 flex items-center">
                 <div className="flex items-center gap-2 justify-start w-full text-white">
                   {/* You can use your getWeatherIcon function here */}
-                  <span className="w-5">{iconFile}</span>
+                  <span className="w-5">
+                    <img src={getWeatherIcon(hour.weathercode)} alt="" className="w-5 h-5" />
+                  </span>
                   <h4 className="flex text-sans">{new Date(hour.time).getHours()}</h4>
                   <span>PM</span>
                   <div className=" flex justify-end w-full">
