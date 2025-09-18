@@ -49,7 +49,7 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
   const selectedIndex = days.findIndex(
   d => d.toLowerCase() === SelectedDays.toLowerCase()
 );
-const selectedDate = weatherData?.daily?.time[selectedIndex];
+ selectedDate = weatherData?.daily?.time[selectedIndex];
 }
 
 
@@ -69,6 +69,7 @@ const selectedDate = weatherData?.daily?.time[selectedIndex];
       }))
       .filter(item => item.time.startsWith(selectedDate));
   }
+  
 
   return (
     <div className="flex mt-12 w-full relative">
@@ -87,7 +88,10 @@ const selectedDate = weatherData?.daily?.time[selectedIndex];
           {hourlyForDay.length === 0 ? (
             <div className="text-white">No hourly data for this day.</div>
           ) : (
-            hourlyForDay.map((hour, idx) => (
+            hourlyForDay.map((hour, idx) => {
+              const hourNum = new Date(hour.time).getHours();
+              const ampm = hourNum >= 12 ? "PM" : "AM";
+              const displayHour = hourNum % 12 === 0 ? 12 : hourNum % 12;
               <div key={hour.time} className="bg-secondary rounded-md border-2 text-white/90 card border-borderColor/15 p-4 shadow-none h-14 flex items-center">
                 <div className="flex items-center gap-2 justify-start w-full text-white">
                   {/* You can use your getWeatherIcon function here */}
@@ -95,14 +99,14 @@ const selectedDate = weatherData?.daily?.time[selectedIndex];
                     <img src={getWeatherIcon(hour.weathercode)} alt="" className="w-5 h-5" />
                   </span>
                   <h4 className="flex text-sans">{new Date(hour.time).getHours()}</h4>
-                  <span>PM</span>
+                  <span>{ampm}</span>
                   <div className=" flex justify-end w-full">
                     <p>{hour.temperature} </p>
                     <span className="-mt-2 text-[12px] ">o</span>
                   </div>
                 </div>
               </div>
-            ))
+})
           )}
         </div>
       </div>
