@@ -101,13 +101,25 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
               <h2 className=" text-7 font-Inter font-semibold">Hourly forecast</h2>
             </div>
             <div className="flex gap-2 justify-end w-full">
-              <button onClick={() => setShowDays(!showDays)} className="btn focus:outline-white focus:outline-2 shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
-                {SelectedDays} <img src={dropdown} alt="" />
+              <button onClick={() => setShowDays(!showDays)} className="btn  focus:outline-white focus:outline-2  shadow-none flex gap-2 bg-button1 border-none rounded-md text-white ">
+                {SelectedDays ? SelectedDays : '...'}  <img src={dropdown} alt="" />
               </button>
             </div>
           </div>
           {hourlyForDay.length === 0 ? (
-            <div className="text-white p-4 rounded-xl   bg-loadingColor/5 w-full h-full">No hourly data for this day.</div>
+            <>
+            <div className="flex gap-5 flex-col">
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            <div className=" p-4 rounded-xl   bg-loadingColor/5 w-full h-12"></div>
+            </div>
+            </>
           ) : (
             hourlyForDay.map((hour, idx) => {
               const hourNum = new Date(hour.time).getHours();
@@ -134,7 +146,7 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
         </div>
       </div>
       {showDays && (
-        <div className="z-20 absolute flex w-full md:w-[305px] top-20 md:top-[78px] ">
+        <div className="z-20 md:ml-20 absolute flex w-full md:w-[305px] top-20 md:top-[78px] ">
           <div ref={dropdownRef} className="flex justify-center flex-col gap-2 pt-2  bg-secondary ml-28 md:ml-2 rounded-xl shadow-xl  p-2 w-56">
             {days.map((day) => (
               <div key={day} onClick={() => {
