@@ -3,8 +3,8 @@ import React from "react";
 export default function SubCloud({ weatherData }) {
  
   if (!weatherData || !weatherData.current_weather) {
-    return <> <div className='text-white/90 gap-5  flex w-full h-32 rounded-xl shadow-xl justify-center'>
-    <div className='bg-secondary  flex flex-col gap-5 p-4 w-full h-32 rounded-xl shadow-xl'>
+    return <> <div className='text-white/90 gap-5 relative  md:flex grid grid-cols-2 w-full h-32 rounded-xl shadow-xl justify-center mb-32 md:mb-0'>
+    <div className='bg-secondary flex flex-col gap-5 p-4 w-full h-32 rounded-xl shadow-xl'>
       <h5>Feel like</h5>
       <p>....</p>
     </div>
