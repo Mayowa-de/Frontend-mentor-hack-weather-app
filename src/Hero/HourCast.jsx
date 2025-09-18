@@ -11,7 +11,7 @@ const icons = import.meta.glob('../assets/images/*',{
   eager: true,
   import: 'default'
 })
-const getWeatherIcon = (code) =>{
+const getWeatherIcon1 = (code) =>{
   if([0,1].includes(code)) return  icons['../assets/images/icon-sunny.webp']
   if([2,3].includes(code)) return  icons['../assets/images/icon-partly-cloudy.webp']
   if([45,48].includes(code)) return  icons['../assets/images/icon-fog.webp']
@@ -39,6 +39,27 @@ export default function HourCast({ weatherData }) {
 
 // dropdown accesibility
   const dropdownRef = useRef(null);
+
+   useEffect(()=>{
+      function handleClickOutside(event){
+         if(dropdownRef.current && !dropdownRef.current.contains(event.target)){
+          setShowDays(false)
+         }
+      }
+      function handleEscClick(event){
+        if(event.key==='Escape'){
+          setShowDays(false)
+        }
+      }
+      if(open){
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('keypress',handleEscClick)
+      }
+      return ()=>{
+        document.removeEventListener('mousedown', handleClickOutside)
+        document.removeEventListener('keypress', handleEscClick)
+      }
+    }, [showDays])
 
   // ...handleShowDays and useEffect for outside click/ESC...
 
@@ -72,8 +93,8 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
   
 
   return (
-    <div className="flex mt-12 w-full relative">
-      <div className="flex gap-7 bg-card rounded-2xl pt-4 px-4 w-full text-white/90 ">
+    <div className="flex mt-12 w-full relative ">
+      <div className="flex gap-7 bg-card rounded-2xl pt-4 px-4 w-full text-white/90 pb-4">
         <div className="flex flex-col mt-3 gap-4 w-full">
           <div className="flex mb-4 w-full">
             <div className=" flex mt-2 w-full">
@@ -92,11 +113,12 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
               const hourNum = new Date(hour.time).getHours();
               const ampm = hourNum >= 12 ? "PM" : "AM";
               const displayHour = hourNum % 12 === 0 ? 12 : hourNum % 12;
-              <div key={hour.time} className="bg-secondary rounded-md border-2 text-white/90 card border-borderColor/15 p-4 shadow-none h-14 flex items-center">
-                <div className="flex items-center gap-2 justify-start w-full text-white">
+              return(
+              <div key={hour.time} className="bg-secondary rounded-md  border-2 text-white/90 card border-borderColor/15 p-4 shadow-none h-14 flex items-center">
+                <div className="flex items-center gap-2 justify-start w-full text-white ">
                   {/* You can use your getWeatherIcon function here */}
                   <span className="w-5">
-                    <img src={getWeatherIcon(hour.weathercode)} alt="" className="w-5 h-5" />
+                    <img src={getWeatherIcon1(hour.weathercode)} alt="cloud icon" className="w-5 h-5" />
                   </span>
                   <h4 className="flex text-sans">{displayHour}</h4>
                   <span>{ampm}</span>
@@ -106,13 +128,14 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
                   </div>
                 </div>
               </div>
-})
+              )
+})  
           )}
         </div>
       </div>
       {showDays && (
         <div className="z-20 absolute flex w-full md:w-[305px] top-20 md:top-[78px] ">
-          <div ref={dropdownRef} className="flex justify-center flex-col gap-2 pt-2  bg-secondary ml-28 rounded-xl shadow-xl  p-2 w-56">
+          <div ref={dropdownRef} className="flex justify-center flex-col gap-2 pt-2  bg-secondary ml-28 md:ml-2 rounded-xl shadow-xl  p-2 w-56">
             {days.map((day) => (
               <div key={day} onClick={() => {
                 setSelectedDays(day);
