@@ -98,7 +98,7 @@ if (weatherData && weatherData.daily && weatherData.daily.time) {
                   <span className="w-5">
                     <img src={getWeatherIcon(hour.weathercode)} alt="" className="w-5 h-5" />
                   </span>
-                  <h4 className="flex text-sans">{new Date(hour.time).getHours()}</h4>
+                  <h4 className="flex text-sans">{displayHour}</h4>
                   <span>{ampm}</span>
                   <div className=" flex justify-end w-full">
                     <p>{hour.temperature} </p>
