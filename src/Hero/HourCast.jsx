@@ -1,10 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import dropdown from "../assets/images/icon-dropdown.svg";
-import OverCastIcon from "../assets/images/icon-overcast.webp";
-import PartlySunnyIcon from "../assets/images/icon-partly-cloudy.webp";
-import SunnyIcon from "../assets/images/icon-sunny.webp";
-import RainIcon from "../assets/images/icon-rain.webp";
-import FogIcon from "../assets/images/icon-fog.webp";
+
 
 //import weather icons
 const icons = import.meta.glob('../assets/images/*',{
