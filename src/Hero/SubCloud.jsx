@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function SubCloud({ weatherData }) {
- 
+
   if (!weatherData || !weatherData.current_weather) {
     return <> <div className='text-white/90 gap-5 relative  md:flex grid grid-cols-2 w-full h-32 rounded-xl shadow-xl justify-center mb-32 md:mb-0'>
     <div className='bg-secondary flex flex-col gap-5 p-4 w-full h-32 rounded-xl shadow-xl'>
@@ -42,7 +42,7 @@ export default function SubCloud({ weatherData }) {
         <h5 className="text-base font-semibold text-borderColor">Wind</h5>
         <div className="flex">
           <h1 className="text-4xl font-Inter">{windspeed}</h1>
-          <span className="text-3xl flex  ml-2 font-Inter">Km/h</span>
+          <span className="text-2xl flex  ml-2 font-Inter mt-2">Km/h</span>
         </div>
       </div>
       <div className="flex flex-col gap-4 bg-card text-white/90 rounded-xl shadow-xl p-5 md:w-full  font-Inter">

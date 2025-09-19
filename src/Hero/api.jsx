@@ -39,7 +39,7 @@ export const fetchWeatherData = async (
   // Fetch weather data
   const unit =
     selected.temperature === "Fahrenheit (F)" ? "fahrenheit" : "celsius";
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&temperature_unit=${unit}&timezone=auto&hourly=temperature_2m,weathercode,relative_humidity_2m,precipitation,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&temperature_unit=${unit}&timezone=auto&hourly=temperature_2m,weathercode,relative_humidity_2m,precipitation,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,windspeed_10m_max&forecast_days=7`;
   const response = await fetch(url);
   const data = await response.json();
 
