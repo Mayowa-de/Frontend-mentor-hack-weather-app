@@ -7,109 +7,42 @@ import StormIcon from "../assets/images/icon-storm.webp";
 import SunnyIcon from "../assets/images/icon-sunny.webp";
 import DrizzleIcon from "../assets/images/icon-drizzle.webp";
 
-export default function DailyForeCast() {
+//import weather icons
+const icons = import.meta.glob('../assets/images/*',{
+  eager: true,
+  import: 'default'
+})
+const getWeatherIcon2 = (code) =>{
+  if([0,1].includes(code)) return  icons['../assets/images/icon-sunny.webp']
+  if([2,3].includes(code)) return  icons['../assets/images/icon-partly-cloudy.webp']
+  if([45,48].includes(code)) return  icons['../assets/images/icon-fog.webp']
+  if([51,61,63,65].includes(code)) return  icons['../assets/images/icon-drizzle.webp']
+  if([71,73,75,77].includes(code)) return  icons['../assets/images/icon-snow.webp']
+  if([95,96,99].includes(code)) return  icons['../assets/images/icon-storm.webp']
+  if([63].includes(code)) return icons['../assets/images/icon-rain.webp']
+}
+
+export default function DailyForeCast({weatherData}) {
   return (
     <div className="flex flex-col mt-10 text-white/90 gap-4 font-Inter">
       <h3 className="text-2xl font-sans font-semibold">Daily forecast</h3>
       <div className="md:flex  gap-3 grid grid-cols-3 w-full">
-        <div className="card flex flex-col gap-5 bg-card items-center w-full justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Tue</h5>
-          <img src={RainIcon} alt="" className="w-16" />
+        {weatherData?.daily?.time?.map((date,index)=>(
+        <div key={date} className="card flex flex-col gap-5 bg-card items-center w-full justify-center  rounded-xl p-2 shadow-xl">
+          <h5>{new Date(date).toLocaleDateString('en-US', {weekday:'short'})}</h5>
+          <img src={getWeatherIcon2(weatherData.daily.weathercode[index])} alt="" className="w-16" />
           <div className="flex gap-5 w-full">
             <div className="flex ">
-              <p>20</p>
+              <p>{weatherData.daily.temperature_2m_max[index]}</p>
               <span className="-mt-1 text-[12px]">o</span>
             </div>
             <div className="flex  justify-end w-full">
-              <p>14</p>
+              <p>{weatherData.daily.temperature_2m_min[index]}</p>
               <span className="-mt-1 text-[12px]">o</span>
             </div>
           </div>
         </div>
-        <div className="card w-full flex flex-col gap-5 bg-card  items-center justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Wed</h5>
-          <img src={DrizzleIcon} alt="" className="w-16" />
-          <div className="flex gap-5 w-full">
-            <div className="flex ">
-              <p>21</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-            <div className="flex  justify-end w-full">
-              <p>15</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-          </div>
-        </div>
-        <div className="card w-full flex flex-col gap-5 bg-card items-center justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Thu</h5>
-          <img src={SunnyIcon} alt="" className="w-16" />
-          <div className="flex gap-5 w-full">
-            <div className="flex ">
-              <p>24</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-            <div className="flex  justify-end w-full">
-              <p>14</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-          </div>
-        </div>
-        <div className="card w-full flex flex-col gap-5 bg-card items-center justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Fri</h5>
-          <img src={partlyCloudyIcon} alt="" className="w-16" />
-          <div className="flex gap-5 w-full">
-            <div className="flex ">
-              <p>25</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-            <div className="flex  justify-end w-full">
-              <p>13</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-          </div>
-        </div>
-        <div className="card w-full flex flex-col gap-5 bg-card items-center justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Sat</h5>
-          <img src={StormIcon} alt="" className="w-16" />
-          <div className="flex gap-5 w-full">
-            <div className="flex ">
-              <p>21</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-            <div className="flex  justify-end w-full">
-              <p>15</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-          </div>
-        </div>
-        <div className="card w-full flex flex-col gap-5 bg-card  items-center justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Sun</h5>
-          <img src={SnowIcon} alt="" className="w-16" />
-          <div className="flex gap-5 w-full">
-            <div className="flex ">
-              <p>25</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-            <div className="flex  justify-end w-full">
-              <p>16</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-          </div>
-        </div>
-        <div className="card w-full flex flex-col gap-5 bg-card items-center justify-center  rounded-xl p-2 shadow-xl">
-          <h5>Mon</h5>
-          <img src={FogIcon} alt="" className="w-16" />
-          <div className="flex gap-5 w-full">
-            <div className="flex ">
-              <p>24</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-            <div className="flex  justify-end w-full">
-              <p>15</p>
-              <span className="-mt-1 text-[12px]">o</span>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

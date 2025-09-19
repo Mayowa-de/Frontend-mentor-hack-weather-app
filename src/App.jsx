@@ -68,7 +68,7 @@ useEffect(() => {
           <div className="flex flex-col ">
             <TodayCloud  data={weatherData}/>
             <SubCloud  weatherData={weatherData} />
-            <DailyForeCast/>
+            <DailyForeCast weatherData={weatherData}/>
           </div>
           <HourCast weatherData={weatherData}/>
         </div>
