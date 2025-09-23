@@ -45,7 +45,7 @@ const toggleDown = ()=>{
         <div className="justify-start flex  ">
           <img src={Logo} alt="logo image" className="w-48" />
         </div>
-        <div className="flex flex-col w-full justify-end items-end ">
+        <div className="flex flex-col w-full justify-end items-end z-10 ">
         <button className="btn items-center p-5  border-none shadow-none focus:outline-white focus:outline-2 flex bg-secondary text-white px-2 h-7 rounded-md ">
          <div className="flex justify-center  gap-2">
           <img src={UnitIcon} className="w-4" alt="setting icon" />
