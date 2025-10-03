@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
 import Bgicon from "../assets/images/bg-today-large.svg";
 import loadingIcon from "../assets/images/icon-loading.svg";
 import "./Hero.css";

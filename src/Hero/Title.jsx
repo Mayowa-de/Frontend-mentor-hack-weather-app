@@ -3,7 +3,6 @@ import SearchIcon from "../assets/images/icon-search.svg";
 import loadIcon from "../assets/images/icon-loading.svg";
 
 export default function Title({ onSearch }) {
-  const [isSearching, setIsSearching] = useState(false);
   const [showSuggestion, setShowSuggestion] = useState(false);
   const containerRef = useRef(null);
   const [location, setLocation] = useState("");
@@ -61,7 +60,7 @@ export default function Title({ onSearch }) {
         </button>
       </div>
       {showSuggestion && (
-        <div className="z-20 p-2 flex top-[230px] md:top-[192px] md:-ml-28 rounded-xl shadow-xl md:w-[450px] w-full bg-secondary absolute px-4">
+        <div className="z-50 p-2 flex top-[290px] md:top-[192px] md:-ml-28 rounded-xl shadow-xl md:w-[450px] w-full bg-secondary absolute px-4">
           <div className="flex flex-col   text-white">
             {location.trim() === "" ? (
               <div className="flex gap-2 z-20 p-2  items-center">

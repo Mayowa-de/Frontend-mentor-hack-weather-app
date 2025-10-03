@@ -40,7 +40,7 @@ export default function Hero({ unit, setUnit, selected, setSelected }) {
     };
   }, [open]);
   return (
-    <div className="w-full flex   mt-5">
+    <div className="w-full flex z-50  mt-5">
       <div className="w-full justify-between flex   mt-2">
         <div className="justify-start flex  ">
           <img src={Logo} alt="logo image" aria-label="logo image" className="w-48" />
@@ -58,7 +58,7 @@ export default function Hero({ unit, setUnit, selected, setSelected }) {
           {open && (
             <div
               ref={dropdownRef}
-              className="bg-secondary w-56 pb-2 rounded-xl dropdown absolute   top-12 z-10 shadow-xl transition ease-out"
+              className="bg-secondary w-56 pb-2 rounded-xl dropdown absolute   top-12 z-50 shadow-xl transition ease-out"
             >
               <div className="flex z-20 flex-col gap-3 p-2 text-white/90">
                 <div
@@ -71,7 +71,7 @@ export default function Hero({ unit, setUnit, selected, setSelected }) {
                 {/* dropdown unit  */}
                 {toDrop && (
                   <>
-                    <p className="text-sm items-center flex pl-2">
+                    <p className="text-sm items-center flex pl-2 ">
                       Temperature
                     </p>
                     {/* Temperature unit selection section */}
@@ -83,7 +83,7 @@ export default function Hero({ unit, setUnit, selected, setSelected }) {
                           onClick={() => handleSelect("temperature", temp)}
                           className={` w-full pl-2  rounded-xl ${
                             isSelected ? "h-12 bg-card" : "bg-transparent"
-                          } z-20 cursor-pointer gap-0 flex items-center transition`}
+                          } z-50 cursor-pointer gap-0  flex items-center transition`}
                         >
                           <p className="text-sm flex">
                             {temp}{" "}
@@ -141,7 +141,7 @@ export default function Hero({ unit, setUnit, selected, setSelected }) {
                           onClick={() => handleSelect("precipitation", ppt)}
                           className={` w-full pl-2  rounded-xl ${
                             isSelected ? "h-12 bg-card" : "bg-transparent"
-                          } cursor-pointer flex items-center transition`}
+                          } cursor-pointer flex z-50 items-center transition`}
                         >
                           <p className="text-sm flex ">
                             {ppt}{" "}

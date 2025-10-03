@@ -25,7 +25,7 @@ export const fetchWeatherData = async (
     }
   } else {
     // Reverse geocode current coordinates to get country/city
-    const revGeoUrl = 'https://geocoding-api.open-meteo.com/v1/reverse-geocoding?latitude=48.8566&longitude=2.3522';
+    const revGeoUrl = `https://geocoding-api.open-meteo.com/v1/reverse-geocoding?latitude=${latitude}&longitude=${longitude}`;
     const revGeoResponse = await fetch(revGeoUrl);
     const revGeoData = await revGeoResponse.json();
     console.log(revGeoData);
