@@ -18,13 +18,13 @@ function App() {
     wind: "Km/h",
     precipitation: "Millimeters (mm)",
   });
-  
+  const [weatherData, setWeatherData] = useState(null);
   // Default to Paris, France
   const [coordinate, setCoordinate] = useState({
     latitude: 48.8566,
     longitude: 2.3522,
   });
-const [weatherData, setWeatherData] = useState(null);
+
   // Try to get user's coordinates on mount
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -40,22 +40,23 @@ const [weatherData, setWeatherData] = useState(null);
       }
     );
   }, []);
-
+ useEffect(() => {
+    if (coordinate.latitude && coordinate.longitude) {
+      fetchWeatherData(coordinate, selected)
+        .then((data) => setWeatherData(data))
+        .catch((error)=>{
+          console.error('fetch failed:', error)
+          setError('Something Went wrong')
+        })
+    } 
+  }, [coordinate, selected]);
   const handleSearch = (locationInput) => {
     fetchWeatherData(coordinate, selected, locationInput)
       .then((data) => setWeatherData(data))
       .catch((err) => console.error(err));
   };
 
-  useEffect(() => {
-    if (coordinate.latitude && coordinate.longitude) {
-      fetchWeatherData(coordinate, selected)
-        .then((data) => setWeatherData(data))
-        .catch((errr)=>{
-          setError('Something Went wrong')
-        })
-    } 
-  }, [coordinate, selected]);
+ 
   // Pass as props
 
   return (
@@ -73,7 +74,7 @@ const [weatherData, setWeatherData] = useState(null);
         <h1 className="text-white text-2xl font-bold">Something went wrong</h1>
         <div className="flex justify-center items-center text-center flex-col gap-3 w-80 md:w-96">
         <p className="text-white">We couldn't connect to the server (API error) Please try again in a few moments</p>
-        <button onClick={()=>handleSearch(locationInput)} className="flex p-2 focus:outline-2 focus:outline-white rounded-xl bg-secondary gap-2">
+        <button onClick={()=>handleSearch(weatherData)} className="flex p-2 focus:outline-2 focus:outline-white rounded-xl bg-secondary gap-2">
           <img src={loadingIcon} alt="loadding icon" className="text-xl"/>
           <p className="text-white text-5">Retry</p>
         </button>
