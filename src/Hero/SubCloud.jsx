@@ -25,7 +25,9 @@ export default function SubCloud({ weatherData, selected }) {
       </>
     );
   }
-  const { temperature, windspeed, precipitation_sum, relative_humidity_2m } =
+  const precipitation = weatherData?.daily?.precipitation_sum?.[0];
+  const humidity = weatherData?.hourly?.relative_humidity_2m?.[0]
+  const { temperature, windspeed } =
     weatherData?.current_weather;
   return (
     <div className="md:flex grid grid-cols-2 gap-2 md:justify-start justify-center w-full font-Inter">
@@ -39,7 +41,7 @@ export default function SubCloud({ weatherData, selected }) {
       <div className="flex flex-col gap-4 md:w-full  bg-card text-white/90 rounded-xl shadow-xl  p-5 font-Inter">
         <h5 className="text-base font-semibold text-borderColor">Humidity</h5>
         <div className="flex">
-          <h1 className="text-4xl">{relative_humidity_2m}</h1>
+          <h1 className="text-4xl">{humidity}</h1>
           <span className="text-2xl flex  ml-2 font-Inter mt-2">Km/h</span>
         </div>
       </div>
@@ -55,7 +57,7 @@ export default function SubCloud({ weatherData, selected }) {
           Precipitation
         </h5>
         <div className="flex">
-          <h1 className="text-4xl font-Inter">{precipitation_sum}</h1>
+          <h1 className="text-4xl font-Inter">{precipitation}</h1>
           <span className="text-2xl mt-2 ml-2 flex text-Inter">mm</span>
         </div>
       </div>

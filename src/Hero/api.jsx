@@ -7,7 +7,8 @@ export const fetchWeatherData = async (
   let longitude = coordinate.longitude;
   let country = "";
   let city = "";
- const proxy = "https://corsproxy.io/?"
+  // Allowing cors
+ const proxy = "https://corsproxy.io/?";
   // If user provided a location, geocode it
   if (locationInput && locationInput.trim() !== "") {
     const geoUrl = `${proxy}https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
@@ -15,7 +16,7 @@ export const fetchWeatherData = async (
     )}&count=5`;
     const geoResponse = await fetch(geoUrl);
     const geoData = await geoResponse.json();
-    if (geoData.results && geoData.results.length > 0) {
+    if (geoData && geoData.results?.length > 0) {
       latitude = geoData.results[0].latitude;
       longitude = geoData.results[0].longitude;
       country = geoData.results[0].country;
@@ -28,8 +29,8 @@ export const fetchWeatherData = async (
     const revGeoUrl = `${proxy}https://geocoding-api.open-meteo.com/v1/reverse?latitude=${latitude}&longitude=${longitude}&language=en`;
     const revGeoResponse = await fetch(revGeoUrl);
     const revGeoData = await revGeoResponse.json();
-    console.log(revGeoData);
-    if (revGeoData && revGeoData.results && revGeoData.results.length > 0) {
+    console.log('Reverse geocodee:', revGeoData);
+    if ( revGeoData && revGeoData.results?.length > 0) {
       country = revGeoData.results[0].country;
       city =
         revGeoData.results[0].city ||
@@ -49,8 +50,6 @@ export const fetchWeatherData = async (
     ...data,
     current_weather: {
       ...data.current_weather,
-      latitude,
-      longitude,
       country,
       city,
     },
