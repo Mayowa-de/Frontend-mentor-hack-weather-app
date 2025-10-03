@@ -18,7 +18,9 @@ const getWeatherIcon2 = (code) =>{
 
 export default function DailyForeCast({weatherData}) {
   if(!weatherData){
-    return( <> <div className="md:flex grid grid-cols-3 gap-5 mt-32 md:mt-12 ">
+    return( 
+    <>
+     <div className="md:flex grid grid-cols-3 gap-5 mt-32 md:mt-12  ">
       <div className='bg-card card w-full h-48 rounded-xl'></div>
       <div className='bg-card card w-full h-48 rounded-xl'></div>
       <div className='bg-card card w-full h-48 rounded-xl'></div>

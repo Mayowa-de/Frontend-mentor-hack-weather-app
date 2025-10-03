@@ -25,9 +25,10 @@ export const fetchWeatherData = async (
     }
   } else {
     // Reverse geocode current coordinates to get country/city
-    const revGeoUrl = `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${latitude}&longitude=${longitude}`;
+    const revGeoUrl = 'https://geocoding-api.open-meteo.com/v1/reverse-geocoding?latitude=48.8566&longitude=2.3522';
     const revGeoResponse = await fetch(revGeoUrl);
     const revGeoData = await revGeoResponse.json();
+    console.log(revGeoData);
     if (revGeoData && revGeoData.features && revGeoData.features.length > 0) {
       country = revGeoData.features[0].properties.country;
       city =
@@ -39,7 +40,7 @@ export const fetchWeatherData = async (
   // Fetch weather data
   const unit =
     selected.temperature === "Fahrenheit (F)" ? "fahrenheit" : "celsius";
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&temperature_unit=${unit}&timezone=auto&hourly=temperature_2m,weathercode,relative_humidity_2m,precipitation,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,windspeed_10m_max&forecast_days=7`;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&temperature_unit=${unit}&timezone=auto&hourly=temperature_2m,weathercode,relative_humidity_2m,windspeed_10m&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,windspeed_10m_max&current=relative_humidity_2m&forecast_days=7`;
   const response = await fetch(url);
   const data = await response.json();
 
