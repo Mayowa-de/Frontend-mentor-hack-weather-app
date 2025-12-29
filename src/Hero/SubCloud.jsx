@@ -1,6 +1,6 @@
 
 
-export default function SubCloud({ weatherData, selected }) {
+export default function SubCloud({ weatherData, selected, unit }) {
   if (!weatherData || !weatherData.current_weather) {
     return (
       <>
@@ -42,14 +42,14 @@ export default function SubCloud({ weatherData, selected }) {
         <h5 className="text-base font-semibold text-borderColor">Humidity</h5>
         <div className="flex">
           <h1 className="text-4xl">{humidity}</h1>
-          <span className="text-2xl flex  ml-2 font-Inter mt-2">Km/h</span>
+          <span className="text-2xl flex  ml-2 font-Inter mt-2">%</span>
         </div>
       </div>
       <div className="flex flex-col md:w-full  gap-4 bg-card text-white/90 rounded-xl shadow-xl  p-5  font-Inter">
         <h5 className="text-base font-semibold text-borderColor">Wind</h5>
         <div className="flex">
           <h1 className="text-4xl font-Inter">{windspeed}</h1>
-          <span className="text-2xl flex  ml-2 font-Inter mt-2">Km/h</span>
+          <span className="text-2xl flex  ml-2 font-Inter mt-2">{unit === 'Km/h' ? 'Km/h' : 'mph'}</span>
         </div>
       </div>
       <div className="flex flex-col gap-4 bg-card text-white/90 rounded-xl shadow-xl p-5 md:w-full  font-Inter">
@@ -58,7 +58,7 @@ export default function SubCloud({ weatherData, selected }) {
         </h5>
         <div className="flex">
           <h1 className="text-4xl font-Inter">{precipitation}</h1>
-          <span className="text-2xl mt-2 ml-2 flex text-Inter">mm</span>
+          <span className="text-2xl mt-2 ml-2 flex text-Inter">{selected === 'mm' ? 'mm' : 'Inches'}</span>
         </div>
       </div>
     </div>

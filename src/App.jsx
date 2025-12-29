@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import "./index.css";
+import {Routes, Route} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import Header from "./Hero/Header.jsx";
 import Title from "./Hero/Title.jsx";
 import TodayCloud from "./Hero/TodayCloud.jsx";
@@ -9,6 +12,7 @@ import DailyForeCast from "./Hero/DailyForeCast.jsx";
 import ErrorIcon from "./assets/images/icon-error.svg"
 import loadingIcon from "./assets/images/icon-loading.svg";
 import { fetchWeatherData } from "./Hero/api.jsx";
+import WeatherAssistant from "./Hero/WeatherAssistant.jsx";
 
 function App() {
   const [error, setError] = useState(null)
@@ -61,7 +65,7 @@ function App() {
 
   return (
     <>
-      <div className="pb-10 items-center flex bg-primary min-h-screen  mb-10 flex-col px-2 md:px-24 ">
+      <div className=" items-center flex bg-primary min-h-screen overflow-hidden flex-col px-2 md:px-24 ">
         <Header
           unit={unit}
           setUnit={setUnit}
@@ -84,14 +88,21 @@ function App() {
         <Title onSearch={handleSearch} />
         <div className="grid gap-7 grid-cols-1 w-full  md:flex ">
           <div className="flex flex-col ">
-            <TodayCloud data={weatherData} />
+            <TodayCloud data={weatherData} selected={selected}/>
             <SubCloud weatherData={weatherData} />
             <DailyForeCast weatherData={weatherData} />
           </div>
-          <HourCast selected={selected} weatherData={weatherData} />
+          <HourCast selected={selected} unit={unit} weatherData={weatherData} />
+          
         </div>
         </>
         )}
+        <div className="absolute z-50 bg-white rounded-full p-4 bottom-3 right-3 text-center flex justify-center " aria-label="icon-button"> 
+          <Link to='/assistant'><i className="bi bi-chat-dots text-4xl fs-3 text-black " /></Link>
+        </div>
+        <Routes>
+        <Route path='/assistant' element={<WeatherAssistant  weatherData={weatherData}/>}/>
+      </Routes>
       </div>
     </>
   );
