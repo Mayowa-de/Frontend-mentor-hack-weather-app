@@ -34,11 +34,11 @@ export default function HomePage({error, handleSearch, weatherData, selected, un
           </div>
           </>
         )}
-        <div className='flex flex-col gap-5 absolute bottom-3 z-50  right-1'>
+        <div className='flex flex-col gap-5 fixed bottom-3 z-50  right-1'>
             <div className='  flex flex-col items-end gap-4 px-4'>
-                <div className='bg-white px-4 p-2 rounded-full  text-start items-center flex'>
+                <div className='bg-white px-4 p-2 rounded-full  text-start items-center flex shadow cursor-pointer'>
                     <p>How is the weather today?</p></div>
-                <div className='bg-white p-2 px-4 rounded-full  text-start items-center flex'>
+                <div className='bg-white p-2 px-4 rounded-full  text-start items-center flex shadow cursor-pointer'>
                     <p>Need to start your day?</p></div>
             </div>
         <div className=" z-50 relative  rounded-full  right-3 text-center flex  justify-end" aria-label="icon-button"> 
