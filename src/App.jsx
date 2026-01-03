@@ -1,18 +1,12 @@
 import { useEffect, useState } from "react";
 import "./index.css";
 import {Routes, Route} from 'react-router-dom'
-import { Link } from "react-router-dom";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import Header from "./Hero/Header.jsx";
-import Title from "./Hero/Title.jsx";
-import TodayCloud from "./Hero/TodayCloud.jsx";
-import SubCloud from "./Hero/SubCloud.jsx";
-import HourCast from "./Hero/HourCast.jsx";
-import DailyForeCast from "./Hero/DailyForeCast.jsx";
-import ErrorIcon from "./assets/images/icon-error.svg"
-import loadingIcon from "./assets/images/icon-loading.svg";
 import { fetchWeatherData } from "./Hero/api.jsx";
-import WeatherAssistant from "./Hero/WeatherAssistant.jsx";
+import AssistantPage from "./AssistantPage.jsx";
+import HomePage from "./HomePage.jsx"
+
 
 function App() {
   const [error, setError] = useState(null)
@@ -65,45 +59,19 @@ function App() {
 
   return (
     <>
-      <div className=" items-center flex bg-primary min-h-screen overflow-hidden flex-col px-2 md:px-24 ">
+      <div className=" items-center flex bg-primary min-h-screen w-full flex-col px-4 md:px-24">
         <Header
           unit={unit}
           setUnit={setUnit}
           selected={selected}
           setSelected={setSelected}
         />
-        {error ? (
-           <div className="flex justify-center w-full items-center gap-3 flex-col mt-12 ">
-        <img src={ErrorIcon} alt="Error icon" className=" w-8 h-8" />
-        <h1 className="text-white text-2xl font-bold">Something went wrong</h1>
-        <div className="flex justify-center items-center text-center flex-col gap-3 w-80 md:w-96">
-        <p className="text-white">We couldn't connect to the server (API error) Please try again in a few moments</p>
-        <button  className="flex p-2 focus:outline-2 focus:outline-white rounded-xl bg-secondary gap-2">
-          <img src={loadingIcon} alt="loadding icon" className="text-xl"/>
-          <p className="text-white text-5">Retry</p>
-        </button>
-        </div>
-        </div> ) : (
-          <>
-        <Title onSearch={handleSearch} />
-        <div className="grid gap-7 grid-cols-1 w-full  md:flex ">
-          <div className="flex flex-col ">
-            <TodayCloud data={weatherData} selected={selected}/>
-            <SubCloud weatherData={weatherData} />
-            <DailyForeCast weatherData={weatherData} />
-          </div>
-          <HourCast selected={selected} unit={unit} weatherData={weatherData} />
-          
-        </div>
-        </>
-        )}
-        <div className="absolute z-50 bg-white rounded-full p-4 bottom-3 right-3 text-center flex justify-center " aria-label="icon-button"> 
-          <Link to='/assistant'><i className="bi bi-chat-dots text-4xl fs-3 text-black " /></Link>
-        </div>
         <Routes>
-        <Route path='/assistant' element={<WeatherAssistant  weatherData={weatherData}/>}/>
-      </Routes>
+          <Route path="/" element={<HomePage  error={error} handleSearch={handleSearch} weatherData={weatherData} selected={selected} unit={unit}/> } />
+           <Route path="/assistant" element={<AssistantPage  weatherData={weatherData}/>}/>
+        </Routes>
       </div>
+ 
     </>
   );
 }

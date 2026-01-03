@@ -41,7 +41,7 @@ export default function Hero({ unit, setUnit, selected, setSelected }) {
   }, [open]);
   return (
     <div className="w-full flex z-50  mt-5">
-      <div className="w-full justify-between flex   mt-2">
+      <div className="w-full justify-between flex mt-2">
         <div className="justify-start flex  ">
           <img src={Logo} alt="logo image" aria-label="logo image" className="w-48" />
         </div>

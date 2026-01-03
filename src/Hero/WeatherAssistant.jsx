@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import  {  useState } from 'react'
 import axios from 'axios'
 import { useRef } from 'react'
 import 'bootstrap-icons/font/bootstrap-icons.css'
@@ -11,12 +11,13 @@ export default function WeatherAssistant({ weatherData }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null)
     const inputRef= useRef(null)
-
+    
+   
     const handleAskAdvice = async () => {
         const userText = inputRef.current.value.trim();
         if(!userText) return
         setMessage((prev=> [...prev, {text: userText, sender: 'user'}]))
-        setInput('')
+        setInput(input)
         setLoading(true);
         setAdviceMessage('');
         setError(null)
@@ -34,24 +35,26 @@ export default function WeatherAssistant({ weatherData }) {
             setLoading(false)
         }
     }
+
     return (
-        <div className='min-h-screen bg-primary w-full absolute z-50 justify-center flex items-center'>
-            <div className='flex flex-col gap-5 justify-start p-5 h-3/4  text-left'>
-            {error && <div className='bg-red-500  left-1 justify-start text-white p-3 rounded-full mb-5'>{error}</div>}
+        <div className='min-h-screen  w-full  z-50 justify-center flex items-center relative'>
+            <div className='flex flex-col gap-3  justify-between  w-full'> 
+            {error &&
+             <div className='bg-red-500 gap-2 left-1 justify-start text-white p-4 rounded-xl mb-5 w-1/2'>{error}</div>}
             {adviceMessage && (
                 <div className='flex gap-3 bg-white p-3 left-0'><i className='bi bi-robot text-2xl'/>{adviceMessage}</div>
             )}
-            <div className='flex flex-col gap-2   right-1 overflow-y-auto w-1/2 justify-end'>
+            <div className='flex flex-col gap-2  right-1  justify-end mb-32 items-end '>
             { message.map((msg, i) => (
-                <div key={i}  className={`${msg.sender === 'user' ? 'user' : 'ai'} bg-white rounded-full p-3 flex flex-col gap-2`}>
+                <div key={i}  className={`${msg.sender === 'user' ? 'user' : 'ai'} bg-white rounded-xl p-3 flex flex-col gap-2`}>
                     {msg.text}
                 </div>
             ))}
+        </div>
             </div>
-            </div>
-            <div className='flex w-full p-2 md:w-1/2 bottom-10  absolute'>
+            <div className='flex w-full p-2  bottom-10  absolute'>
                 <input type="text" ref={inputRef} onChange={(e)=>setInput(e.target.value)} placeholder='Ask about the weather...' className='flex p-3 px-4 w-full  rounded-full rounded-r-none outline-secondary bg-white border-2 ' />
-                <button onClick={handleAskAdvice} disabled={loading} className='flex p-4 px-5 md:px-7 rounded-r-full bg-secondary text-center justify-center text-white '>{loading ? "Thinking..." : "Ask"}</button>
+                <button onClick={handleAskAdvice} disabled={loading} className='flex p-4 px-5 md:px-10 rounded-r-full bg-secondary text-center justify-center text-white '>{loading ? "Thinking..." : "Ask"}</button>
             </div>
 
         </div>
