@@ -8,10 +8,10 @@ export const fetchWeatherData = async (
   let country = "";
   let city = "";
   // Allowing cors
- const proxy = "https://corsproxy.io/?";
+ // const proxy = "https://corsproxy.io/?";
   // If user provided a location, geocode it
   if (locationInput && locationInput.trim() !== "") {
-    const geoUrl = `${proxy}https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
+    const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
       locationInput
     )}&count=5`;
     const geoResponse = await fetch(geoUrl);
