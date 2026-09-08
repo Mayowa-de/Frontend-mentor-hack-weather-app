@@ -95,7 +95,7 @@ function App() {
         />
         <Routes>
          <Route path="/" element={<HomePage  error={error} handleSearch={handleSearch} weatherData={weatherData} selected={selected} unit={unit}/> } />
-           <Route path="/assistant" element={<AssistantPage  weatherData={weatherData}/>}/>
+           <Route path="/assistant" element={<AssistantPage weatherData={weatherData}/>}/>
         </Routes>
       </div>
  

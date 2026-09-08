@@ -85,7 +85,7 @@ export default function TodayCloud({ data }) {
             className="md:w-36 w-24 -ml-40 -mt-3"
             aria-label="cloud image"
           />
-          <div className="flex gap-5 italic mr-2">
+          <div className="flex gap-6 italic mr-2">
             <h1 className="md:text-8xl text-6xl font-DMSans-Italic text-end text-white font-bold">
               {temperature_2m}
             </h1>
