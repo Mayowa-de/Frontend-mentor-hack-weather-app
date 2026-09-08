@@ -11,6 +11,32 @@ body{
   font-family: 'BricolageGrotesque-Bold', sans-serif;
   font-size: 18px;
 }
+
+.hourly-scroll {
+  overflow-y: scroll;
+  scrollbar-color: hsl(233, 67%, 56%) hsl(243, 27%, 20%);
+  scrollbar-width: auto;
+}
+
+.hourly-scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.hourly-scroll::-webkit-scrollbar-track {
+  background: hsl(243, 27%, 20%);
+  border-radius: 999px;
+}
+
+.hourly-scroll::-webkit-scrollbar-thumb {
+  background: hsl(233, 67%, 56%);
+  border: 3px solid hsl(243, 27%, 20%);
+  border-radius: 999px;
+}
+
+.hourly-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(233, 67%, 65%);
+}
+
 @font-face {
   font-family: 'BricolageGrotesque-Bold';
   src: url('./assets/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf');
