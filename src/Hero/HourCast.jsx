@@ -94,7 +94,7 @@ export default function HourCast({ weatherData }) {
   }
 
   return (
-    <div className="hourly-scroll flex mt-12 bg-card md:h-[calc(100vh-1rem)] w-full md:w-[330px] relative">
+    <div className="hourly-scroll flex mt-12 bg-card md:h-[calc(100vh-1rem)] w-full md:w-[330px] relative rounded-2xl shadow-xl overflow-y-auto">
      <div className="flex gap-7 bg-card rounded-2xl pt-4 px-4 w-full text-white/90 pb-4">
         <div className="flex flex-col mt-3 gap-4 w-full">
           <div className="flex mb-4 w-full">
