@@ -14,7 +14,7 @@ body{
 
 .hourly-scroll {
   overflow-y: scroll;
-  scrollbar-color: hsl(233, 67%, 56%) hsl(243, 27%, 20%);
+  scrollbar-color: hsl(243, 23%, 24%) hsl(243, 27%, 20%);
   scrollbar-width: auto;
 }
 
@@ -28,13 +28,13 @@ body{
 }
 
 .hourly-scroll::-webkit-scrollbar-thumb {
-  background: hsl(233, 67%, 56%);
+  background: hsl(243, 23%, 24%);
   border: 3px solid hsl(243, 27%, 20%);
   border-radius: 999px;
 }
 
 .hourly-scroll::-webkit-scrollbar-thumb:hover {
-  background: hsl(233, 67%, 65%);
+  background: hsl(243, 23%, 24%);
 }
 
 @font-face {
