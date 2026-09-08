@@ -22,7 +22,8 @@ const getWeatherIcon = (code) => {
 };
 export default function TodayCloud({ data }) {
   // Error handling of the loading state
-  if (!data || !data.current_weather) {
+  const current = data?.current;
+  if (!current) {
     return (
     <div className="bg-secondary text-white/90  md:w-[800px] w-full h-72 justify-center items-center flex flex-col m-12 mx-0 rounded-2xl">
         <img src={loadingIcon} className="w-10 h-20 animate-rotate  justify-center flex items-center" alt="loading icon"/>
@@ -32,8 +33,10 @@ export default function TodayCloud({ data }) {
   }
 
   // declare value to fetch
-  const { temperature, country, city, weathercode } = data.current_weather;
-  const iconFile = getWeatherIcon(weathercode);
+  const { temperature_2m, weather_code } = current;
+  const iconFile = getWeatherIcon(weather_code);
+  const city = data?.city || data?.location?.city || "";
+  const country = data?.country || data?.location?.country || "";
 
   // date,  day and year fetching
   const date = new Date();
@@ -73,7 +76,7 @@ export default function TodayCloud({ data }) {
           />
           <div className="flex gap-5 italic ">
             <h1 className="md:text-8xl text-6xl font-DMSans-Italic text-end text-white font-bold">
-              {temperature}
+              {temperature_2m}
             </h1>
             <span className="text-xl mt-2 -ml-3 text-white font-bold flex gap-5">
               o

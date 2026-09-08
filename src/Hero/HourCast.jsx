@@ -25,12 +25,13 @@ const getWeatherIcon1 = (code) => {
 export default function HourCast({ weatherData }) {
   const [showDays, setShowDays] = useState(false);
   const [SelectedDays, setSelectedDays] = useState("");
-  const days =
-    weatherData && weatherData.daily && weatherData.daily.time
-      ? weatherData.daily.time.map((dateStr) =>
-          new Date(dateStr).toLocaleDateString("en-US", { weekday: "long" })
-        )
-      : [];
+  const daily = weatherData?.daily;
+  const hourly = weatherData?.hourly;
+  const days = Array.isArray(daily?.time)
+    ? daily.time.map((dateStr) =>
+        new Date(dateStr).toLocaleDateString("en-US", { weekday: "long" })
+      )
+    : [];
 
   useEffect(() => {
     if (days.length > 0 && !SelectedDays) {
@@ -52,7 +53,7 @@ export default function HourCast({ weatherData }) {
         setShowDays(false);
       }
     }
-    if (open) {
+    if (showDays) {
       document.addEventListener("mousedown", handleClickOutside);
       document.addEventListener("keypress", handleEscClick);
     }
@@ -66,28 +67,29 @@ export default function HourCast({ weatherData }) {
 
   // Find the index of the selected day in the API's daily.time array
   let selectedDate = null;
-  if (weatherData && weatherData.daily && weatherData.daily.time) {
+  if (Array.isArray(daily?.time)) {
     // Find the index of the selected day in the days array
     const selectedIndex = days.findIndex(
       (d) => d.toLowerCase() === SelectedDays.toLowerCase()
     );
-    selectedDate = weatherData?.daily?.time[selectedIndex];
+    selectedDate = selectedIndex >= 0 ? daily.time[selectedIndex] : null;
   }
 
   // Filter hourly data for the selected day
   let hourlyForDay = [];
   if (
-    weatherData &&
-    weatherData.hourly &&
-    weatherData.hourly.time &&
+    Array.isArray(hourly?.time) &&
+    Array.isArray(hourly?.temperature_2m) &&
+    Array.isArray(hourly?.weather_code) &&
     selectedDate
   ) {
-    hourlyForDay = weatherData.hourly.time
+    hourlyForDay = hourly.time
       .map((time, idx) => ({
         time,
-        temperature: weatherData.hourly.temperature_2m[idx],
-        weathercode: weatherData.hourly.weathercode[idx],
+        temperature: hourly.temperature_2m[idx],
+        weathercode: hourly.weather_code[idx],
       }))
+      .filter((item) => item.temperature !== undefined && item.weathercode !== undefined)
       .filter((item) => item.time.startsWith(selectedDate));
   }
 

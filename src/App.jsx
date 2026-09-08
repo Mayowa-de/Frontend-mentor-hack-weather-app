@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import axios from "axios"
 import "./index.css";
 import {Routes, Route} from 'react-router-dom'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import Header from "./Hero/Header.jsx";
-import { fetchWeatherData } from "./Hero/api.jsx";
 import AssistantPage from "./AssistantPage.jsx";
 import HomePage from "./HomePage.jsx"
 
@@ -38,21 +38,48 @@ function App() {
       }
     );
   }, []);
- useEffect(() => {
-    if (coordinate.latitude && coordinate.longitude) {
-      fetchWeatherData(coordinate, selected)
-        .then((data) => setWeatherData(data))
-        .catch((error)=>{
+
+ useEffect ( () => {
+  async function fetchData(){
+  try{
+    setError(null);
+    const response= await axios.get("http://localhost:3000/api/weather", {
+      params: {
+        latitude: coordinate.latitude,
+        longitude: coordinate.longitude,
+        units: selected.temperature,
+        windUnit: selected.wind,
+        precipitationUnit: selected.precipitation,
+      },
+    });
+    setWeatherData(response.data);
+  }
+    catch(error){
           console.error('fetch failed:', error)
           setError('Something Went wrong')
-        })
-    } 
+        }
+      };
+      fetchData()
   }, [coordinate, selected]);
-  const handleSearch = (locationInput) => {
-    fetchWeatherData(coordinate, selected, locationInput)
-      .then((data) => setWeatherData(data))
-      .catch((err) => console.error(err));
+
+  const handleSearch = async (locationInput) => {
+    try{
+      setError(null);
+      const response = await axios.get("http://localhost:3000/api/weather", {
+        params: {
+          city: locationInput,
+          units: selected.temperature,
+          windUnit: selected.wind,
+          precipitationUnit: selected.precipitation,
+        },
+      });
+      setWeatherData(response.data);
+    }
+    catch(error) {
+        console.error(error)
+         setError('something went wrong')
   };
+}
 
  
   // Pass as props
@@ -67,7 +94,7 @@ function App() {
           setSelected={setSelected}
         />
         <Routes>
-          <Route path="/" element={<HomePage  error={error} handleSearch={handleSearch} weatherData={weatherData} selected={selected} unit={unit}/> } />
+         <Route path="/" element={<HomePage  error={error} handleSearch={handleSearch} weatherData={weatherData} selected={selected} unit={unit}/> } />
            <Route path="/assistant" element={<AssistantPage  weatherData={weatherData}/>}/>
         </Routes>
       </div>
