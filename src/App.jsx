@@ -86,7 +86,7 @@ function App() {
 
   return (
     <>
-      <div className=" items-center w-full flex bg-primary min-h-screen flex-col px-4 md:px-24 ">
+      <div className=" items-center w-full flex bg-primary min-h-screen flex-col px-4 md:px-24 pb-4 ">
         <Header
           unit={unit}
           setUnit={setUnit}
