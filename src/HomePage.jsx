@@ -34,7 +34,7 @@ export default function HomePage({error, onRetry, handleSearch, weatherData, sel
         <div className="grid gap-7 grid-cols-1 w-full md:flex">
           <div className="flex flex-col ">
             <TodayCloud data={weatherData} selected={selected}/>
-            <SubCloud weatherData={weatherData} selected={selected} unit={unit} />
+            <SubCloud weatherData={weatherData} selected={selected} />
             <DailyForeCast weatherData={weatherData} />
           </div>
           <HourCast selected={selected} unit={unit} weatherData={weatherData} />
