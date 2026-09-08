@@ -43,7 +43,7 @@ function App() {
   async function fetchData(){
   try{
     setError(null);
-    const response= await axios.get("http://localhost:3000/api/weather", {
+    const response= await axios.get( "https://weather-app-backend-ozky.onrender.com", {
       params: {
         latitude: coordinate.latitude,
         longitude: coordinate.longitude,
@@ -65,7 +65,7 @@ function App() {
   const handleSearch = async (locationInput) => {
     try{
       setError(null);
-      const response = await axios.get("http://localhost:3000/api/weather", {
+      const response = await axios.get("https://weather-app-backend-ozky.onrender.com/api/weather", {
         params: {
           city: locationInput,
           units: selected.temperature,
