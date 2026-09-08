@@ -78,7 +78,7 @@ export default function TodayCloud({ data }) {
             {day}, {month} {dayNumber}, {currentYear}
           </p>
         </div>
-        <div className="flex justify-end md:gap-12 mr-4 md:mr-0  md:ml-20 mt-7 md:mt-0 gap-20 items-center">
+        <div className="flex justify-end md:gap-12 mr-8 md:mr-0  md:ml-20 mt-7 md:mt-0 gap-24 items-center">
           <img
             src={iconFile}
             alt="cloud icon"
