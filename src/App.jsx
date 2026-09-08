@@ -7,6 +7,26 @@ import Header from "./Hero/Header.jsx";
 import AssistantPage from "./AssistantPage.jsx";
 import HomePage from "./HomePage.jsx"
 
+async function getFallbackLocation(latitude, longitude) {
+  try {
+    const response = await axios.get("https://nominatim.openstreetmap.org/reverse", {
+      params: {
+        format: "jsonv2",
+        lat: latitude,
+        lon: longitude,
+        zoom: 10,
+      },
+    });
+    const address = response.data?.address;
+    return {
+      city: address?.city || address?.town || address?.village || address?.municipality || "",
+      country: address?.country || "",
+    };
+  } catch (locationError) {
+    console.error("location lookup failed:", locationError);
+    return null;
+  }
+}
 
 function App() {
   const [error, setError] = useState(null)
@@ -51,7 +71,8 @@ function App() {
         precipitationUnit: selected.precipitation,
       },
     });
-    setWeatherData(response.data);
+    const location = await getFallbackLocation(coordinate.latitude, coordinate.longitude);
+    setWeatherData({ ...response.data, ...location });
   }
     catch(error){
           console.error('fetch failed:', error)
