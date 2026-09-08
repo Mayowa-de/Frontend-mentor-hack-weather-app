@@ -7,7 +7,7 @@ import TodayCloud from "./Hero/TodayCloud.jsx";
 import SubCloud from "./Hero/SubCloud.jsx";
 import HourCast from "./Hero/HourCast.jsx";
 import DailyForeCast from "./Hero/DailyForeCast.jsx";
-export default function HomePage({error, handleSearch, weatherData, selected, unit}) {
+export default function HomePage({error, onRetry, handleSearch, weatherData, selected, unit}) {
   const [showQuickPrompts, setShowQuickPrompts] = useState(true);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function HomePage({error, handleSearch, weatherData, selected, un
         <h1 className="text-white text-2xl font-bold">Something went wrong</h1>
         <div className="flex justify-center items-center text-center flex-col gap-3 w-80 md:w-96">
         <p className="text-white">We couldn't connect to the server (API error) Please try again in a few moments</p>
-        <button  className="flex p-2 focus:outline-2 focus:outline-white rounded-xl bg-secondary gap-2">
+        <button type="button" onClick={onRetry} className="flex p-2 focus:outline-2 focus:outline-white rounded-xl bg-secondary gap-2">
           <img src={loadingIcon} alt="loadding icon" className="text-xl"/>
           <p className="text-white text-5">Retry</p>
         </button>

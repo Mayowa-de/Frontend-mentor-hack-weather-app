@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios"
 import "./index.css";
 import {Routes, Route} from 'react-router-dom'
@@ -39,11 +39,10 @@ function App() {
     );
   }, []);
 
- useEffect ( () => {
-  async function fetchData(){
+  const fetchWeatherData = useCallback(async () => {
   try{
     setError(null);
-    const response= await axios.get( "https://weather-app-backend-ozky.onrender.com" || "http://localhost:3000", {
+    const response= await axios.get("https://weather-app-backend-ozky.onrender.com/api/weather", {
       params: {
         latitude: coordinate.latitude,
         longitude: coordinate.longitude,
@@ -58,9 +57,11 @@ function App() {
           console.error('fetch failed:', error)
           setError('Something Went wrong')
         }
-      };
-      fetchData()
   }, [coordinate, selected]);
+
+ useEffect(() => {
+    fetchWeatherData();
+  }, [fetchWeatherData]);
 
   const handleSearch = async (locationInput) => {
     try{
@@ -94,7 +95,7 @@ function App() {
           setSelected={setSelected}
         />
         <Routes>
-         <Route path="/" element={<HomePage  error={error} handleSearch={handleSearch} weatherData={weatherData} selected={selected} unit={unit}/> } />
+         <Route path="/" element={<HomePage error={error} onRetry={fetchWeatherData} handleSearch={handleSearch} weatherData={weatherData} selected={selected} unit={unit}/> } />
            <Route path="/assistant" element={<AssistantPage weatherData={weatherData}/>}/>
         </Routes>
       </div>
