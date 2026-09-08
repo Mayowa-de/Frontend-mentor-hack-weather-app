@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import ErrorIcon from "./assets/images/icon-error.svg"
 import loadingIcon from "./assets/images/icon-loading.svg";
@@ -8,6 +8,13 @@ import SubCloud from "./Hero/SubCloud.jsx";
 import HourCast from "./Hero/HourCast.jsx";
 import DailyForeCast from "./Hero/DailyForeCast.jsx";
 export default function HomePage({error, handleSearch, weatherData, selected, unit}) {
+  const [showQuickPrompts, setShowQuickPrompts] = useState(true);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setShowQuickPrompts(false), 3000);
+    return () => clearTimeout(fadeTimer);
+  }, []);
+
   return (
     <div className=' flex flex-col'>
         {error ? (
@@ -35,7 +42,7 @@ export default function HomePage({error, handleSearch, weatherData, selected, un
           </>
         )}
         <div className='flex flex-col gap-5 fixed bottom-3 z-50  right-1'>
-            <div className='  flex flex-col items-end gap-4 px-4'>
+          <div className={`flex flex-col items-end gap-4 px-4 transition-opacity duration-500 ${showQuickPrompts ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <div className='bg-white px-4 p-2 rounded-full  text-start items-center flex shadow cursor-pointer'>
                     <p>How is the weather today?</p></div>
                 <div className='bg-white p-2 px-4 rounded-full  text-start items-center flex shadow cursor-pointer'>
