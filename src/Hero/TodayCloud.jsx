@@ -35,8 +35,19 @@ export default function TodayCloud({ data }) {
   // declare value to fetch
   const { temperature_2m, weather_code } = current;
   const iconFile = getWeatherIcon(weather_code);
-  const city = data?.city || data?.location?.city || "";
-  const country = data?.country || data?.location?.country || "";
+  const city =
+    data?.city ||
+    data?.location?.city ||
+    data?.location?.name ||
+    current?.city ||
+    current?.name ||
+    data?.name ||
+    "";
+  const country =
+    data?.country ||
+    data?.location?.country ||
+    current?.country ||
+    "";
 
   // date,  day and year fetching
   const date = new Date();
