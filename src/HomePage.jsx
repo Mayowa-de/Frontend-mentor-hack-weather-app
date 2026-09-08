@@ -31,7 +31,7 @@ export default function HomePage({error, handleSearch, weatherData, selected, un
         </div> ) : (
           <>
          <Title onSearch={handleSearch} />
-        <div className="grid gap-7 grid-cols-1 w-full  md:flex ">
+        <div className="grid gap-7 grid-cols-1 w-full md:flex md:items-stretch">
           <div className="flex flex-col ">
             <TodayCloud data={weatherData} selected={selected}/>
             <SubCloud weatherData={weatherData} selected={selected} unit={unit} />
